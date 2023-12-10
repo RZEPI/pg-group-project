@@ -42,7 +42,7 @@
 }
 .main-side
 {
-    box-shadow: 0.2em 0.4em 0.05em #594cae;
+    box-shadow: 0.2em 0.4em 0.05em #594cae, 0 0.9em 2em -1.2em  #fff;
 }
 .sub-side
 {
