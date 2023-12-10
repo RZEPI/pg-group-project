@@ -1,0 +1,36 @@
+.main-side-content
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    height: 55vh;
+    margin: 6em auto;
+    padding: 3em;
+    color: white;
+}
+@font-face {
+    font-family: "Best Kids";
+    src: url('../../assets/Best Kids.otf');
+}
+
+.main-side-content h1
+{
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 4.7em;
+    font-weight: 580;
+    padding: 0.1em;
+    font-family: "Best Kids";
+}
+.main-side-content img
+{
+    width:7em;
+}
+.main-side-content p
+{
+    font-size: 2em;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
