@@ -8,7 +8,7 @@ export default function MainSideContent() {
             <img src={logo} alt="logo" />     
             <h1>Zabawa Z Jednostkami</h1>
             <p>
-                Gra stworzona przez studnetów Politechniki Gdańskiej <br/> w celu pomocy dydaktycznej dla dzieci
+                Gra stworzona przez studentów Politechniki Gdańskiej <br/> w celu pomocy dydaktycznej dla dzieci
             </p>
         
             <MainButtonContainer />
