@@ -17,8 +17,7 @@
 }
 .main-button:hover
 {
-    margin-top: 2.6em;
-    margin-left: -0.1em;
+    transform: translate(-0.2em, -0.2em);
 }
 .lightyellow
 {
@@ -42,7 +41,8 @@
 }
 .main-side
 {
-    box-shadow: 0.2em 0.4em 0.05em #594cae, 0 0.9em 2em -1.2em  #fff;
+    box-shadow: 0.2em 0.4em 0.05em #594cae, 
+    0 0.9em 2em -1.2em  #fff;
 }
 .sub-side
 {
