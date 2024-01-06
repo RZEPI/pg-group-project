@@ -33,4 +33,8 @@ yarn-error.log*
 =======
 
 /node_modules
+<<<<<<< HEAD
 >>>>>>> 70a348f (added gitignore)
+=======
+venv/
+>>>>>>> a1f7ec8 (Added first version of the backend - app.py.)

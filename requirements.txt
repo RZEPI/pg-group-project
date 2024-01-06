@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Flask==3.0.0
 flask-mysqldb
+=======
+Flask 3.0.0
+flask-mysqldb 0.2.0
+>>>>>>> a1f7ec8 (Added first version of the backend - app.py.)
