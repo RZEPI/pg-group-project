@@ -3,7 +3,8 @@ import { useState, useRef } from "react";
 import styles from "../../styles/Question.module.css";
 
 export default function AnswersChoice({ answers, onSelect }) {
-  const [selectedAnswer, setSelectedAnswer] = useState();
+  const [selectedAnswer, setSelectedAnswer] = useState([]);
+  const [isLevelFinished, setIsLevelFinished] = useState(false);
 
   const shuffledAnswers = useRef();
 
@@ -13,9 +14,10 @@ export default function AnswersChoice({ answers, onSelect }) {
   }
 
   function handleAnswerClick(answer) {
-    console.log(answer + " " + answers[0]);
-    const answerObj = { answer, isCorrect: answer === answers[0] };
-    setSelectedAnswer(answerObj);
+    const isCorrect = answer === answers[0];
+    const answerObj = { answer, isCorrect };
+    setSelectedAnswer((previousAnswers) => [...previousAnswers, answerObj]);
+    setIsLevelFinished(isCorrect);
     onSelect(answerObj);
   }
 
@@ -23,9 +25,10 @@ export default function AnswersChoice({ answers, onSelect }) {
     <div className={styles["answers-choice"]}>
       {shuffledAnswers.current.map((answer) => {
         let classNames = styles["question-card"];
-        if (selectedAnswer && selectedAnswer.answer === answer)
+        const chosenAnswer = selectedAnswer.find((a) => a.answer === answer);
+        if (chosenAnswer)
         {
-          classNames += selectedAnswer.isCorrect
+          classNames += chosenAnswer.isCorrect
             ? ` ${styles.correct}`
             : ` ${styles.incorrect}`;
         }
@@ -34,7 +37,7 @@ export default function AnswersChoice({ answers, onSelect }) {
           <button
             className={classNames}
             key={answer}
-            onClick={() => handleAnswerClick(answer)}
+            onClick={() => !isLevelFinished ? handleAnswerClick(answer) : null}
           >
             {answer}
           </button>

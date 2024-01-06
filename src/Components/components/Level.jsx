@@ -1,25 +1,28 @@
-import DUMMY_QUESTIONS from '../../assets/questions';
-import { useState } from 'react';
-import Question from './Question';
+import DUMMY_QUESTIONS from "../../assets/questions";
+import { useContext, useState } from "react";
+import UserContext from "../store/user-context";
+import Question from "./Question";
+import Results from "./Results";
 
-export default function Level()
-{
-    //TODO: change this logic to fetching questions from the server and reconsider pointing system
-    const [userAnswers, setUserAnswers] = useState([]);
-    const userActiveQuestionIdx = userAnswers.length;
-    if(userActiveQuestionIdx >= DUMMY_QUESTIONS.length)
-    {
-        //TODO: show the results 
-    }
-    const activeQuestion = DUMMY_QUESTIONS[userActiveQuestionIdx];
+export default function Level() {
+  const [activeQuestionIdx, setActiveQuestionIdx] = useState(0);
+  const userCtx = useContext(UserContext);
+  const questionsAmount = DUMMY_QUESTIONS.length;
 
-    //TODO: think about handling with reducer
-    function handleAnswerSelection(answer)
-    {
-        setUserAnswers((prevAnswers) => [...prevAnswers, answer]);
-    }
+  if (activeQuestionIdx >= questionsAmount) {
+    return <Results points={userCtx.points} maxPoints={questionsAmount * 3} />;
+  }
+  const activeQuestion = DUMMY_QUESTIONS[activeQuestionIdx];
 
-    return (
-        <Question key={activeQuestion.id} questionData={activeQuestion} onSelect={handleAnswerSelection} />
-    );
+  function handleAnswerSelection() {
+    setActiveQuestionIdx((activeQuestionIdx) => activeQuestionIdx + 1);
+  }
+
+  return (
+    <Question
+      key={activeQuestion.id}
+      questionData={activeQuestion}
+      onSelect={handleAnswerSelection}
+    />
+  );
 }

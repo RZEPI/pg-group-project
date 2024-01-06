@@ -1,4 +1,4 @@
-.main-side-content
+.main-side-container
 {
     display: flex;
     flex-direction: column;
@@ -15,8 +15,9 @@
     src: url('../../assets/Best Kids.otf');
 }
 
-.main-side-content h1
+.main-side-container h1
 {
+    text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     font-size: 4.7em;
@@ -24,11 +25,19 @@
     padding: 0.1em;
     font-family: "Best Kids";
 }
-.main-side-content img
+.main-side-container h2
+{
+    margin-top: 0;
+    text-align: center;
+    font-size: 2.4em;
+    font-weight: 580;
+    padding: 0.1em;
+}
+.main-side-container img
 {
     width:7em;
 }
-.main-side-content p
+.main-side-container p
 {
     font-size: 2em;
     text-align: center;
