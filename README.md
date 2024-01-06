@@ -25,4 +25,6 @@ Download packages listed in requirements.txt:
 pip install -r requirements.txt
 ```
 To run the script type:
+```
 py app.py
+```
