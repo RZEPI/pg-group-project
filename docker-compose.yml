@@ -20,7 +20,11 @@ services:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: proj_grupowy
     ports: 
+<<<<<<< HEAD
       - "52000:3306"
+=======
+      - "3306"
+>>>>>>> 5ac10d9 (merged database with backend repos)
     volumes:
       - "./mysql:/docker-entrypoint-initdb.d"
       # - "mysql-db-grupowy:/var/lib/mysql"
