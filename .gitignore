@@ -4,4 +4,8 @@ venv/
 =======
 venv/
 response.json
+<<<<<<< HEAD
 >>>>>>> a21a199 (Added Question_Type to the response, improved code quality)
+=======
+node_modules
+>>>>>>> 5ac10d9 (merged database with backend repos)
