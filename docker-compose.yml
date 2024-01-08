@@ -22,5 +22,5 @@ services:
     ports:
       - "8081:80"
 
-volumes:
-  mysql-db-grupowy:
+# volumes:
+  # mysql-db-grupowy:
