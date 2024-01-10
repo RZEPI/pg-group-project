@@ -17,5 +17,5 @@ export default function Button({ children, ...props }) {
 
   const classes = `${styles["main-button"]} ${getColor(props.color)} ${getSide(props.side)} ${props.className}`;
 
-  return <button className={classes}>{children}</button>;
+  return <button className={classes} {...props}>{children}</button>;
 }
