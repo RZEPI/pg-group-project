@@ -1,0 +1,42 @@
+.error-msg
+{
+    width: 90%;
+    font-size: 1.5em;
+    font-weight:500;
+    color: #f04c6a;
+    text-align: left;
+}
+.form-container
+{
+    margin: 0 auto;
+    width: 60%;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1.5em;
+}
+.input-container
+{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.input-container input[type=text]
+{
+    width: 60%;
+    height: 3.8vh;
+    border: 1px solid #000;
+    border-radius: 4em;
+    font-size: 3.5em;
+    padding: 0.5em;
+}
+
+.correct{
+    background-color: #4cf051;
+}
+.incorrect{
+    background-color: #f04c6a;
+}
