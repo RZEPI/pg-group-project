@@ -59,6 +59,7 @@ def get_question(question_id):
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
 
+<<<<<<< HEAD
 =======
 @app.route('/')
 def index():
@@ -86,3 +87,5 @@ def get_question(question_id):
 if __name__ == '__main__':
     app.run(debug=True)
 >>>>>>> a1f7ec8 (Added first version of the backend - app.py.)
+=======
+>>>>>>> b610c10 (fix for linux)
