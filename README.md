@@ -17,7 +17,8 @@ py -m venv venv
 ### On Linux
 ```
 python3 -m venv venv
-.\venv\bin\activate
+source venv/bin/activate
+sudo apt-get install python3-dev default-libmysqlclient-dev build-essential pkg-config
 ```
 Download packages listed in requirements.txt:
 ```

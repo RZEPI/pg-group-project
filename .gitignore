@@ -1,4 +1,5 @@
 /node_modules
-venv/
+/venv
+/.venv
 response.json
 node_modules
