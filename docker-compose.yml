@@ -2,6 +2,13 @@ version: '3.1'
 
 services:
 
+  backend:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    ports:
+      - "5002:80"
+
   db:
     container_name: mysql-grupowy
     image: mysql:5.7
