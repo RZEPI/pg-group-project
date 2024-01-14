@@ -28,4 +28,9 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
 >>>>>>> 37014bd (Initialize project using Create React App)
+=======
+
+/node_modules
+>>>>>>> 70a348f (added gitignore)
