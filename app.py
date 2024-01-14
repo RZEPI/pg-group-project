@@ -1,10 +1,11 @@
 from flask import Flask, render_template, jsonify
 from flask_mysqldb import MySQL
+import json
 
 app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_PORT'] = 52000        # must be adjusted with every Docker run
+app.config['MYSQL_PORT'] = 52000
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'admin'
 app.config['MYSQL_DB'] = 'proj_grupowy'
@@ -16,8 +17,8 @@ def get_from_db(query, isAnswer):
     try:
         with mysql.connection.cursor() as cur:
             cur.execute(query)
-            result = cur.fetchall()
             if isAnswer:
+                result = cur.fetchall()
                 for answer in result:
                     if int(answer[1]) == 1:
                         tmp_response.append(answer[0])
@@ -25,6 +26,7 @@ def get_from_db(query, isAnswer):
                     if int(answer[1]) != 1:
                         tmp_response.append(answer[0]) 
             else:
+                result = cur.fetchone()
                 tmp_response.append(result[0])
                 tmp_response.append(result[1])
         return tmp_response
@@ -41,14 +43,15 @@ def index():
         return render_template('index.html', data=questions)
     except Exception as e:
         return f"Error: {str(e)}"
-
 @app.route('/question/<int:question_id>/')#, methods=['GET'])
 def get_question(question_id):
     response = []
-    response.append(get_from_db(f"SELECT answer_type, question_text FROM Questions WHERE question_id = {question_id}", False))
-    response.append(get_from_db(f"SELECT answer_text, is_correct FROM Answers WHERE question_id = {question_id}", True))
-    print(response)
-    return render_template('question.html', data=response)
+    response.extend(get_from_db(f"SELECT answer_type, question_text FROM Questions WHERE question_id = {question_id}", False))
+    response.extend(get_from_db(f"SELECT answer_text, is_correct FROM Answers WHERE question_id = {question_id}", True))
+    # Zapisz response do pliku JSON DO CELÓW TESTOWYCH
+    with open('response.json', 'w') as json_file:
+        json.dump(response, json_file, indent=2)
+    return jsonify(response)
 
 if __name__ == '__main__':
     app.run(debug=True)
