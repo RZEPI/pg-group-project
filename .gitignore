@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 /node_modules
 venv/
+=======
+venv/
+response.json
+>>>>>>> a21a199 (Added Question_Type to the response, improved code quality)
