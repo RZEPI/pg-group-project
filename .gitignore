@@ -34,7 +34,13 @@ yarn-error.log*
 
 /node_modules
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 70a348f (added gitignore)
 =======
 venv/
 >>>>>>> a1f7ec8 (Added first version of the backend - app.py.)
+=======
+venv/
+response.json
+node_modules
+>>>>>>> a0f6c09 (fixed git signs)
