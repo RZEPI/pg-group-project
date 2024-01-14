@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, jsonify
 from flask_mysqldb import MySQL
 import json
 
@@ -33,24 +33,11 @@ def get_from_db(query, isAnswer):
     except Exception as e:
         return f"Error: {str(e)}"
 
-@app.route('/')
-def index():
-    try:
-        with mysql.connection.cursor() as cur:
-            cur.execute("SELECT * FROM Questions")
-            result = cur.fetchall()
-            questions = [{'question_id': row[0], 'question_text': row[1]} for row in result]
-        return render_template('index.html', data=questions)
-    except Exception as e:
-        return f"Error: {str(e)}"
-@app.route('/question/<int:question_id>/')#, methods=['GET'])
+@app.route('/question/<int:question_id>/', methods=['GET'])
 def get_question(question_id):
     response = []
     response.extend(get_from_db(f"SELECT answer_type, question_text FROM Questions WHERE question_id = {question_id}", False))
     response.extend(get_from_db(f"SELECT answer_text, is_correct FROM Answers WHERE question_id = {question_id}", True))
-    # Zapisz response do pliku JSON DO CELÓW TESTOWYCH
-    with open('response.json', 'w') as json_file:
-        json.dump(response, json_file, indent=2)
     return jsonify(response)
 
 if __name__ == '__main__':
