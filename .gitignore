@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-/node_modules
-/venv
-/.venv
-response.json
-node_modules
-=======
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -28,24 +21,8 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-<<<<<<< HEAD
->>>>>>> 37014bd (Initialize project using Create React App)
-=======
 
 /node_modules
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 70a348f (added gitignore)
-=======
-venv/
->>>>>>> a1f7ec8 (Added first version of the backend - app.py.)
-=======
-venv/
-=======
+response.json
 /venv
 /.venv
->>>>>>> b610c10 (fix for linux)
-response.json
-node_modules
->>>>>>> a0f6c09 (fixed git signs)
