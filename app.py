@@ -1,9 +1,9 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, jsonify
 from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = '127.0.0.1'
 app.config['MYSQL_PORT'] = 52000
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'admin'
@@ -11,8 +11,7 @@ app.config['MYSQL_DB'] = 'proj_grupowy'
 
 mysql = MySQL(app)
 
-
-class Response:
+class ProperResponse:
     def __init__(self):
         self.id = None
         self.text = None
@@ -25,21 +24,17 @@ class ErrorResponse:
 
 
 def get_from_db(query, is_answer):
-    tmp_response = Response()
+    tmp_response = ProperResponse()
     try:
         with mysql.connection.cursor() as cur:
             cur.execute(query)
             if is_answer:
                 result = cur.fetchall()
                 tmp_response.answers = []
+                result = sorted(result, key=lambda x: x[1], reverse=True)
                 for answer in result:
-                    if int(answer[1]) == 1:
-                        tmp_response.answers.append(answer[0])
-
-                for answer in result:
-                    if int(answer[1]) != 1:
-                        tmp_response.answers.append(answer[0])
-            else:  # This is a question
+                    tmp_response.answers.append(answer[0])
+            else:
                 result = cur.fetchone()
                 if not result:
                     return ErrorResponse("Question not found for the given index.")
@@ -66,4 +61,4 @@ def get_question(question_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
