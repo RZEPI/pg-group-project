@@ -1,0 +1,57 @@
+.question
+{
+    margin: 5em auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.question-card
+{
+    font-size: 2.5em;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 1em;
+    border: 1px solid black;
+    border-radius: 5.5em;
+    background-color: aliceblue;
+    padding: 1em;
+}
+
+.answers-choice
+{
+    height: 20em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+} 
+.answers-choice button
+{
+    max-width: 15em;
+    min-width: 10em;
+    max-height: 5em;
+    box-shadow: 0.2em 0.4em 0.05em #594cae, 
+    0 0.9em 2em -1.2em  #fff;
+}
+
+.available
+{
+    cursor: pointer;
+}
+
+.available:hover
+{
+    transform: translate(-0.2em, -0.2em);
+    background-color: rgb(221, 223, 224);
+}
+
+.incorrect
+{
+    cursor: not-allowed;
+    background-color:#f04c6a;
+}
+.correct 
+{
+    cursor: not-allowed;
+    background-color: #4cf051;
+}

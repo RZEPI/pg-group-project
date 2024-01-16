@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pytanie i Odpowiedzi</title>
+</head>
+<body>
+
+    <p><strong>Pytanie:</strong> {{ data[0] }}</p>
+    <p><strong>Poprawna Odpowiedź:</strong> {{ data[1] }}</p>
+    <p><strong>Pozostałe Odpowiedzi:</strong>
+        {% for wrong_answer in data[2:] %}
+            {{ wrong_answer }}<br>
+        {% endfor %}
+    </p>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  # backend:
+  #   build:
+  #     context: .
+  #     dockerfile: .docker/Dockerfile
+  #   ports:
+  #     - "5001:5001"
+  #     - "8001:80"
+  #   depends_on:
+  #     - db
+
+  db:
+    container_name: mysql-grupowy
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: proj_grupowy
+    ports: 
+      - "52000:3306"
+    volumes:
+      - "./mysql:/docker-entrypoint-initdb.d"
+      # - "mysql-db-grupowy:/var/lib/mysql"
+  
+  panel:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    ports:
+      - "8081:80"
+
+# volumes:
+  # mysql-db-grupowy:
