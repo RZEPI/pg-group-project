@@ -1,5 +1,4 @@
 from httpd
-expose 80
 expose 5001
 
 copy ./app.py ./requirements.txt /usr/local/apache2/htdocs/
@@ -12,6 +11,8 @@ run apt-get install python3 -y
 run apt install python3.11-venv -y
 run apt-get install python3-dev default-libmysqlclient-dev build-essential pkg-config -y
 run apt-get install python3-pip -y
+run apt-get install iproute2 -y
+run apt-get install curl -y
 
 run cd /usr/local/apache2/htdocs \
     && python3 -m venv venv \
