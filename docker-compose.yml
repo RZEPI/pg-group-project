@@ -8,7 +8,7 @@ services:
     ports:
       - "5001:5001"
     volumes:
-      - ./backend/app.py:/usr/local/apache2/htdocs/
+      - ./backend/app:/usr/local/apache2/htdocs/app
     depends_on:
       - db
     networks:
