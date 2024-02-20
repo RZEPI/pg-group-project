@@ -2,7 +2,7 @@ from node:20.10
 
 WORKDIR /app
 
-COPY ./package.json ./
+COPY ./frontend/package.json ./
 
 RUN npm install
 

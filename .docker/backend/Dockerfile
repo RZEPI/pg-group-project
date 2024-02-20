@@ -2,7 +2,6 @@ from httpd
 expose 5001
 
 copy ./backend/requirements.txt /usr/local/apache2/htdocs/
-# todo: zamienic to na bindowany wolumin
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
