@@ -26,6 +26,7 @@ export default function Question({ questionData, onSelect }) {
   if (questionData.type === "abc" || questionData.type === "trueFalse") {
     answers = (
       <AnswersChoice
+        key={questionData.id}
         answers={questionData.answers}
         onSelect={handleSelection}
       />
@@ -33,6 +34,7 @@ export default function Question({ questionData, onSelect }) {
   } else if (questionData.type === "text") {
     answers = (
       <AnswersText
+        key={questionData.id}
         correctAnswer={questionData.answers[0]}
         onSelect={handleTextAnswer}
       />
