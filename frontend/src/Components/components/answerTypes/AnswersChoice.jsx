@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-import styles from "../../styles/Question.module.css";
+import styles from "../../styles/AnswersChoice.module.css";
 
 export default function AnswersChoice({ answers, onSelect }) {
   const [selectedAnswer, setSelectedAnswer] = useState([]);
@@ -24,7 +24,7 @@ export default function AnswersChoice({ answers, onSelect }) {
   return (
     <div className={styles["answers-choice"]}>
       {shuffledAnswers.current.map((answer) => {
-        let classNames = styles["question-card"];
+        let classNames = styles["choice-button"];
         const chosenAnswer = selectedAnswer.find((a) => a.answer === answer);
         if (chosenAnswer)
         {
@@ -36,7 +36,7 @@ export default function AnswersChoice({ answers, onSelect }) {
         return (
           <button
             className={classNames}
-            key={answer}
+            key={`${answer}_${Math.random()}`}
             onClick={() => !isLevelFinished ? handleAnswerClick(answer) : null}
           >
             {answer}

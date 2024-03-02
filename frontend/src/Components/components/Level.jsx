@@ -1,21 +1,25 @@
+import { useNavigate, useParams } from "react-router-dom";
+
 import DUMMY_QUESTIONS from "../../assets/questions";
-import { useContext, useState } from "react";
-import UserContext from "../store/user-context";
 import Question from "./Question";
-import Results from "./Results";
+import { useEffect } from "react";
 
 export default function Level() {
-  const [activeQuestionIdx, setActiveQuestionIdx] = useState(0);
-  const userCtx = useContext(UserContext);
-  const questionsAmount = DUMMY_QUESTIONS.length;
+  const params = useParams();
+  const navigate = useNavigate();
 
-  if (activeQuestionIdx >= questionsAmount) {
-    return <Results points={userCtx.points} maxPoints={questionsAmount * 3} />;
-  }
-  const activeQuestion = DUMMY_QUESTIONS[activeQuestionIdx];
+  const levelId = +params.levelId;
+  const questionsAmount = DUMMY_QUESTIONS.length;// TO DELETE
+
+  useEffect(() => {
+    if (levelId >= questionsAmount) {
+      navigate("/results");
+    }
+  }, [levelId, questionsAmount, navigate]);
+  const activeQuestion = DUMMY_QUESTIONS[levelId] || {};
 
   function handleAnswerSelection() {
-    setActiveQuestionIdx((activeQuestionIdx) => activeQuestionIdx + 1);
+    navigate(`/level/${levelId + 1}`);
   }
 
   return (

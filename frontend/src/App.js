@@ -1,15 +1,22 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import PageLayout from "./Components/components/PageLayout";
 import MainSideContent from "./Components/components/MainSideContent";
-import MainLevelComponent from "./Components/components/MainLevelComponent";
+import Level from "./Components/components/Level";
+import Results from "./Components/components/Results";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <PageLayout />,
+    children: [
+      { index: true, element: <MainSideContent /> },
+      { path: "level/:levelId", element: <Level /> },
+      { path: "results", element: <Results /> },
+    ],
+  },
+]);
 
 export default function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainSideContent/>} />
-        <Route path="/level" element={<MainLevelComponent />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 }

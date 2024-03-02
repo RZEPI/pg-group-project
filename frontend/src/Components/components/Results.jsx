@@ -1,8 +1,13 @@
 import MainButtonContainer from "./MainButtonContainer";
 import logo from "../../assets/logo.png"
 import  "../styles/MainSideContent.css";
+import { useContext } from "react";
+import UserContext from "../store/user-context";
 
-export default function Results({points, maxPoints}) {
+export default function Results() {
+    const {points, levelAmount} = useContext(UserContext);
+    const maxPoints = levelAmount * 3;  
+
     let message = "";
     if(points === maxPoints)
     {
