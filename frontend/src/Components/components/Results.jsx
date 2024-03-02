@@ -1,8 +1,8 @@
 import MainButtonContainer from "./MainButtonContainer";
-import logo from "../../assets/logo.png"
 import  "../styles/MainSideContent.css";
 import { useContext } from "react";
 import UserContext from "../store/user-context";
+import BigLogo from "./BigLogo";
 
 export default function Results() {
     const {points, levelAmount} = useContext(UserContext);
@@ -21,7 +21,7 @@ export default function Results() {
         message = "Przed tobą jeszcze trochę nauki. Spróbuj ponownie wciskając przycisk Zagraj od początku.";
     }
     return (<div className="main-side-container">
-        <img src={logo} alt="logo" /> 
+        <BigLogo />
         <h1>Twój wynik to:<br/>
             {`${points}/${maxPoints}`}</h1>
         <h2>{message}</h2>

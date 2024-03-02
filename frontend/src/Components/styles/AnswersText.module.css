@@ -1,21 +1,22 @@
 .error-msg
 {
     width: 90%;
-    font-size: 1.5em;
-    font-weight:500;
+    font-size: 1.7rem;
+    font-weight:700;
     color: #f04c6a;
+    text-shadow: 0 0 0.7rem white;
     text-align: left;
 }
 .form-container
 {
     margin: 0 auto;
     width: 60%;
-    height: 10vh;
+    height: 25vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    padding: 1.5em;
+    padding: 1.5rem;
 }
 .input-container
 {
@@ -23,15 +24,16 @@
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
 }
 .input-container input[type=text]
 {
     width: 60%;
     height: 3.8vh;
     border: 1px solid #000;
-    border-radius: 4em;
-    font-size: 3.5em;
-    padding: 0.5em;
+    border-radius: 4rem;
+    font-size: 3.5rem;
+    padding: 1.8rem;
 }
 
 .correct{

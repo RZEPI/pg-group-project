@@ -32,12 +32,6 @@
     cursor: pointer;
 }
 
-.available:hover
-{
-    transform: translate(-0.2em, -0.2em);
-    background-color: rgb(221, 223, 224);
-}
-
 .incorrect
 {
     cursor: not-allowed;
