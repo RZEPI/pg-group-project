@@ -2,6 +2,13 @@
 This is the project developed as part of course at the Gdańsk University of Technology. 
 The project's purpose is to develop educational game for children from elementary school designed to make learning about various units of measurement a fun and interactive experience for young minds.
 
+## Starting application  
+Type in Linux terminal:   
+> docker compose up --build   
+
+http://localhost:3001/
+
+<!-- 
 ## In order to run app.py
 Open console and move to the project directory:
 ```
@@ -27,4 +34,4 @@ pip install -r requirements.txt
 To run the script type:
 ```
 py app.py
-```
+``` -->
