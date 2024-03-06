@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useContext } from "react";
 
 import styles from "../styles/MainButtonContainer.module.css";
@@ -10,22 +9,18 @@ export default function MainButtonContainer({ isMainPage = true }) {
   return (
     <div className={styles["button-container"]}>
       {isMainPage ? (
-        <Link to="/level/0">
-          <Button color="yellow" side="main" onClick={setDefault}>
+          <Button color="yellow" onClick={setDefault} href="/level/0">
             Zagraj <br /> od początku
           </Button>
-        </Link>
       ) : (
-        <Link to="/">
-          <Button color="yellow" side="main">
+          <Button color="yellow" href="/">
             Wróć do menu głównego
           </Button>
-        </Link>
       )}
-      <Button color="blue" side="main">
+      <Button color="blue">
         Losowy <br /> poziom
       </Button>
-      <Button color="red" side="main">
+      <Button color="red" href="/level-choice">
         Wybierz <br /> poziom
       </Button>
     </div>

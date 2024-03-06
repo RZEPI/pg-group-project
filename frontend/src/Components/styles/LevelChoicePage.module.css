@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "Best Kids";
+    src: url('../../assets/Best Kids.otf');
+}
+.headline
+{
+    font-size: 4.3em;
+    letter-spacing: 0.3rem;
+    margin-top: 7rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: "Best Kids", Arial, Helvetica, sans-serif;
+}
+
+.main-container
+{
+    margin: auto;
+    display:grid;
+    grid-template-columns: 4fr 2fr;
+    height: 60vh;
+    width: 75vw;
+}

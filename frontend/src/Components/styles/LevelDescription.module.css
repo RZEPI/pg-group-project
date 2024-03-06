@@ -1,0 +1,28 @@
+.level-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.level-container > *
+{
+    margin: 1rem;
+}
+
+.level-container > h1
+{
+    font-size: 2.9rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.level-container > img
+{
+    max-height: 30vh;
+    border-radius: 4rem;
+    background-color: #8276da;
+}

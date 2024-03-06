@@ -23,26 +23,71 @@ export default [
         ],
         type: "abc",
     },
-    // {
-    //     id: 'q3',
-    //     text: "Jedna kura zjada średnio 100g paszy jednego dnia. Rolnik ma w zapasie 3 tony paszy. Jeśli rolnik ma 120 kur, to na ile dni wystarczy mu paszy?",
-    //     answers:[
-    //         "250",
-    //         "30",
-    //         "45",
-    //         "1200"
-    //     ],
-    //     type: "abc",
-    // },
-    // {
-    //     id:"q4",
-    //     text: "Pan Kazio pojechał do sklepu kupić deski na nową budę dla psa. Wcześniej obliczył, że potrzebuje 9 metrów desek. Niestety zapomniał zabrać miarki do sklepu. Jedyne co ma pod ręką to karton po mleku, który ma długość 2dm. Ile razy musi odmierzyć deskę kartonem, aby być pewnym, że starczy mu na budę dla psa?",
-    //     answers:[
-    //         "45",
-    //         "75",
-    //         "2,5",
-    //         "450"
-    //     ],
-    //     type: "abc"
-    // }
+    {
+        id: 'q3',
+        text: "Jedna kura zjada średnio 100g paszy jednego dnia. Rolnik ma w zapasie 3 tony paszy. Jeśli rolnik ma 120 kur, to na ile dni wystarczy mu paszy?",
+        answers:[
+            "250",
+            "30",
+            "45",
+            "1200"
+        ],
+        type: "abc",
+    },
+    {
+        id:"q4",
+        text: "Pan Kazio pojechał do sklepu kupić deski na nową budę dla psa. Wcześniej obliczył, że potrzebuje 9 metrów desek. Niestety zapomniał zabrać miarki do sklepu. Jedyne co ma pod ręką to karton po mleku, który ma długość 2dm. Ile razy musi odmierzyć deskę kartonem, aby być pewnym, że starczy mu na budę dla psa?",
+        answers:[
+            "45",
+            "75",
+            "2,5",
+            "450"
+        ],
+        type: "abc"
+    },
+    {
+        id:"q5",
+        text: "Pan Kazio pojechał do sklepu kupić deski na nową budę dla psa. Wcześniej obliczył, że potrzebuje 9 metrów desek. Niestety zapomniał zabrać miarki do sklepu. Jedyne co ma pod ręką to karton po mleku, który ma długość 2dm. Ile razy musi odmierzyć deskę kartonem, aby być pewnym, że starczy mu na budę dla psa?",
+        answers:[
+            "45",
+            "75",
+            "2,5",
+            "450"
+        ],
+        type: "abc"
+    },
+    {
+        id:"q6",
+        text: "Pan Kazio pojechał do sklepu kupić deski na nową budę dla psa. Wcześniej obliczył, że potrzebuje 9 metrów desek. Niestety zapomniał zabrać miarki do sklepu. Jedyne co ma pod ręką to karton po mleku, który ma długość 2dm. Ile razy musi odmierzyć deskę kartonem, aby być pewnym, że starczy mu na budę dla psa?",
+        answers:[
+            "45",
+            "75",
+            "2,5",
+            "450"
+        ],
+        type: "abc"
+    },
+    {
+        id:"q7",
+        text: "Pan Kazio pojechał do sklepu kupić deski na nową budę dla psa. Wcześniej obliczył, że potrzebuje 9 metrów desek. Niestety zapomniał zabrać miarki do sklepu. Jedyne co ma pod ręką to karton po mleku, który ma długość 2dm. Ile razy musi odmierzyć deskę kartonem, aby być pewnym, że starczy mu na budę dla psa?",
+        answers:[
+            "45",
+            "75",
+            "2,5",
+            "450"
+        ],
+        type: "abc"
+    }
+    ,
+    {
+        id:"q7",
+        text: "Pan Kazio pojechał do sklepu kupić deski na nową budę dla psa. Wcześniej obliczył, że potrzebuje 9 metrów desek. Niestety zapomniał zabrać miarki do sklepu. Jedyne co ma pod ręką to karton po mleku, który ma długość 2dm. Ile razy musi odmierzyć deskę kartonem, aby być pewnym, że starczy mu na budę dla psa?",
+        answers:[
+            "45",
+            "75",
+            "2,5",
+            "450"
+        ],
+        type: "abc"
+    }
 ];

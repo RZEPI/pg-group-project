@@ -14,6 +14,8 @@
     cursor: pointer;
     /* margin-top: 2.8em; */
     background-color: #c1c1c188;
+    box-shadow: 0.2rem 0.4rem 0.05rem #594cae, 
+    0 0.9rem 2.5rem -1.4rem  #fff;
 }
 
 .main-button:disabled,
@@ -43,13 +45,4 @@
 }
 .tomatopink:hover{
     background-color: #b93a4f;
-}
-.main-side
-{
-    box-shadow: 0.2rem 0.4rem 0.05rem #594cae, 
-    0 0.9rem 2.5rem -1.4rem  #fff;
-}
-.sub-side
-{
-    box-shadow: 0 0 0.2rem #a0a0a588;
 }
