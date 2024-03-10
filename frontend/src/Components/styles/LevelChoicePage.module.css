@@ -20,4 +20,5 @@
     grid-template-columns: 4fr 2fr;
     height: 60vh;
     width: 75vw;
+    max-width: 100vw;
 }

@@ -80,7 +80,7 @@ export default [
     }
     ,
     {
-        id:"q7",
+        id:"q8",
         text: "Pan Kazio pojechał do sklepu kupić deski na nową budę dla psa. Wcześniej obliczył, że potrzebuje 9 metrów desek. Niestety zapomniał zabrać miarki do sklepu. Jedyne co ma pod ręką to karton po mleku, który ma długość 2dm. Ile razy musi odmierzyć deskę kartonem, aby być pewnym, że starczy mu na budę dla psa?",
         answers:[
             "45",

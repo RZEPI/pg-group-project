@@ -1,4 +1,6 @@
-export default function LevelItem({levelData, onLevelChoise}) {
+import {motion} from "framer-motion";
+
+export default function LevelItem({levelData, onLevelChoise, className}) {
 
     //dummy content
     const newLevelData = {
@@ -7,6 +9,6 @@ export default function LevelItem({levelData, onLevelChoise}) {
     }
 
     return (
-        <li onClick={() => onLevelChoise(newLevelData)}><p>{newLevelData.title}</p></li>
+        <motion.li whileHover={{scale:1.1}} className={className} onClick={() => onLevelChoise(newLevelData)}><p>{newLevelData.title}</p></motion.li>
     );
 }

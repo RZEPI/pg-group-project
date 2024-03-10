@@ -31,7 +31,7 @@
 
 .list-container > li
 {
-    width: 29%;
+    min-width: 29%;
     height: 33%;
     background-color: #d8edfc;
     margin: 1rem;
@@ -43,4 +43,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.chosen
+{
+  box-shadow: 0 0 1.5rem #fff;
 }

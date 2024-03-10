@@ -22,6 +22,8 @@
 
 .level-container > img
 {
+    margin: 0;
+    padding: 0;
     max-height: 30vh;
     border-radius: 4rem;
     background-color: #8276da;
