@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import styles from "../../styles/AnswersText.module.css";
 import Button from "../../../UI/Button";
 
@@ -52,11 +53,20 @@ export default function AnswersText({ correctAnswer, onSelect }) {
       ? styles["correct"]
       : styles["incorrect"];
 
+      const variants = {
+        correct: { y: [10, -10, 10, -10, 10, 0], scale: 1.01 },
+        incorrect: { x: [-10, 10, -10, 10, -10, 0], scale: 1 },
+        hover: { scale: 1.01 },
+      };
+      const currentVariant = isAnswerCorrect === undefined ? null : isAnswerCorrect ? "correct" : "incorrect";
   return (
     <form className={styles["form-container"]} onSubmit={handleSubmit}>
       <div className={styles["input-container"]}>
-        <input
+        <motion.input
           type="text"
+          whileHover={currentVariant === null ? "hover" : null}
+          variants={variants}
+          animate={currentVariant}
           value={textField}
           onChange={handleInputBlur}
           onFocus={() => setIsAnswerCorrect(undefined)}

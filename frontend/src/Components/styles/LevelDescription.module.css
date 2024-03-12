@@ -28,3 +28,12 @@
     border-radius: 4rem;
     background-color: #8276da;
 }
+.unchosen
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 500;
+}

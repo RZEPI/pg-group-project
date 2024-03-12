@@ -22,3 +22,11 @@
     width: 75vw;
     max-width: 100vw;
 }
+.back-home,
+.back-home > *
+{
+    position: absolute;
+    top: 2.3rem;
+    left: 2.3rem;
+    max-width: 3rem;
+}
