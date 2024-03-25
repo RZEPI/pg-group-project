@@ -1,7 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom";
 
+import Background from "./Background";
 import DUMMY_QUESTIONS from "../../assets/questions";
 import Question from "./Question";
+import tempimage from "../../assets/farm.jpg";
 import { useEffect } from "react";
 
 export default function Level() {
@@ -23,10 +25,12 @@ export default function Level() {
   }
 
   return (
-    <Question
-      key={activeQuestion.id}
-      questionData={activeQuestion}
-      onSelect={handleAnswerSelection}
-    />
+    <Background image={tempimage}>
+      <Question
+        key={activeQuestion.id}
+        questionData={activeQuestion}
+        onSelect={handleAnswerSelection}
+      />
+    </Background>
   );
 }
