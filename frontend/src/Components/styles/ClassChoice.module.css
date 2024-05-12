@@ -1,0 +1,95 @@
+.choice-container
+{
+    top:3em;
+    margin-left: calc(100% - 10vw - 7em);
+    width: 10vw;
+    position: absolute;
+    cursor: pointer;
+    color:#fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.choice-container *
+{
+    box-sizing: border-box;
+    width: 100%;
+    height: 3vh;
+}
+
+.choice-folded
+{
+    text-align: center;
+    border-radius: 1em;
+    background-color: #8bc4ee;
+    border: 3px solid #5e8dbf;
+}
+.choice-folded *
+{
+    height: 80%;
+}
+
+.choice-unfolded
+{
+    text-align: center;
+    border-radius: 1em 1em 0 0;
+    border-bottom: 0;
+    padding-bottom: 3px;
+}
+.folding-arrow
+{
+    position: absolute;
+    right: 0.4em;
+    top:0.6em;
+    font-size: 0.7em;
+    width: 2em;
+    height: 1em;
+    font-size: 1em;
+}
+
+.active-class
+{
+    margin: 0.2em auto;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.choices
+{
+    display: flex;
+    flex-direction: column;
+    z-index: -1;
+
+}
+.choices p 
+{
+    text-align: center;
+    font-size: 1.1em;
+    margin: 0.2em;
+    font-weight: 500;
+    padding: 0.25em;
+    background-color: #8bc4ee;
+    border-right: 3px solid #5e8dbf;
+    border-left: 3px solid #5e8dbf;
+    margin: 0;
+}
+.choices p:hover
+{
+    background-color: #5e8dbf;
+}
+.choices  p:last-child
+{
+    border-bottom: 3px solid #5e8dbf;
+    border-radius: 0 0 1em 1em;
+}
+
+@media (max-height: 900px)
+{
+    .choice-container *
+    {
+        height: 5vh;
+    }
+    .folding-arrow
+    {
+        top:0.8em;
+        height: 0.8em;
+    }
+}

@@ -4,10 +4,6 @@ import styles from "../../styles/AnswersText.module.css";
 import Button from "../../../UI/Button";
 
 export default function AnswersText({ correctAnswer, onSelect }) {
-  const [answerStats, setAnswerStats] = useState({
-    incorrectAnswers: 0,
-    lastAnswer: -1,
-  });
   const [textField, setTextField] = useState("");
   const [isAnswerCorrect, setIsAnswerCorrect] = useState();
   const [inputError, setInputError] = useState("");
@@ -18,23 +14,10 @@ export default function AnswersText({ correctAnswer, onSelect }) {
     if (isNaN(parsedValue)) {
       setInputError("W polu można wpisać tylko liczbę dodatnią.");
     } else {
-      if (answerStats.lastAnswer === parsedValue) return;
       const isCorrect = parsedValue === correctAnswer;
       setIsAnswerCorrect(isCorrect);
-      if (!isCorrect) {
-        setAnswerStats((prevStats) => {
-          return {
-            ...prevStats,
-            incorrectAnswers: prevStats.incorrectAnswers++,
-            lastAnswer:parsedValue
-          };
-        });
-        ;
-      } else {
-        let points = 3 - 0.5 * answerStats.incorrectAnswers;
-        points = points < 0 ? 0 : points;
-        onSelect(parsedValue, points);
-      }
+    
+      onSelect({answer: parsedValue, isCorrect});
     }
   }
 

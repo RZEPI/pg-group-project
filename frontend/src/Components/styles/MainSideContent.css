@@ -43,3 +43,12 @@
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+
+@media (height < 1000px)
+{
+    .main-side-container
+    {
+        margin: 1rem auto;
+    }
+}

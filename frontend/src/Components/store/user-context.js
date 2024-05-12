@@ -1,28 +1,64 @@
+import { CLASSES } from "./classes";
 import { createContext, useReducer } from "react";
 
 const UserContext = createContext({
   points: 0,
   answers: [],
   levelAmount: 0,
+  activeClass: CLASSES.THIRD,
   addAnswer: () => {},
   addTextAnswer: () => {},
   setDefault: () => {},
+  setClass: () => {},
 });
+
+function getPoints(question, diff = 1) {
+  let points = 3;
+  question.map((answer) => {
+    if (!answer.isCorrect) {
+      points -= diff;
+    }
+    return;
+  });
+  return points < 0 ? 0 : points;
+}
 
 function userReducer(state, action) {
   if (action.type === "ADD_ANSWER") {
-    const gottenAnswer = action.payload.answer;
-    let gottenPoints = 0;
-    if (gottenAnswer.isCorrect) {
-      gottenPoints += 3;
+    const { answer, questionType, questionIndex } = action.payload;
+
+    const isQuestionInitiated = state.answers.length > questionIndex;
+    let questionAnswers;
+    let points;
+
+    let newAnswers = [...state.answers];
+
+    if (isQuestionInitiated) {
+      questionAnswers = newAnswers[questionIndex];
+      const isAnswerInserted = questionAnswers.find(
+        (ans) => ans.answer === answer.answer
+      );
+      if(!isAnswerInserted)
+        questionAnswers.push(answer);
     } else {
-      if (action.payload.questionType === "trueFalse") gottenPoints -= 3;
-      else if (action.payload.questionType === "abc") gottenPoints -= 1;
+      const idx = newAnswers.length;
+      newAnswers = [...newAnswers, [answer]];
+      questionAnswers = newAnswers[idx];
     }
 
-    const newPoints = state.points + gottenPoints;
-    const newAnswers = [...state.answers, gottenAnswer];
-    const newLevelAmount = gottenAnswer.isCorrect
+    if (answer.isCorrect) {
+      if (questionType === "text") {
+        points = getPoints(questionAnswers, 0.5);
+      } else {
+        const diff = questionType === "abc" ? 1 : 3;
+        points = getPoints(questionAnswers, diff);
+      }
+    } else {
+      return { ...state, answers: newAnswers };
+    }
+
+    const newPoints = state.points + points;
+    const newLevelAmount = answer.isCorrect
       ? state.levelAmount + 1
       : state.levelAmount;
     return {
@@ -32,22 +68,19 @@ function userReducer(state, action) {
       answers: newAnswers,
     };
   }
-  if (action.type === "ADD_ANSWER_TEXT") {
-    const newAnswers = [...state.answers, action.payload.answer];
-    const newPoints = state.points + action.payload.points;
 
-    return {
-      ...state,
-      levelAmount: state.levelAmount + 1,
-      points: newPoints,
-      answers: newAnswers,
-    };
-  }
   if (action.type === "SET_DEFAULT") {
     return {
+      class: CLASSES.THIRD,
       points: 0,
       levelAmount: 0,
       answers: [],
+    };
+  }
+  if (action.type === "SET_CLASS") {
+    return {
+      ...state,
+      class: action.payload.class,
     };
   }
   return state;
@@ -60,16 +93,10 @@ export function UserContextProvider({ children }) {
     answers: [],
   });
 
-  function addAnswerHandler(answer, questionType) {
+  function addAnswerHandler(answer, questionType, questionIndex) {
     userDispacher({
       type: "ADD_ANSWER",
-      payload: { answer, questionType },
-    });
-  }
-  function addAnswerTextHandler(answer, points) {
-    userDispacher({
-      type: "ADD_ANSWER_TEXT",
-      payload: { answer, points },
+      payload: { answer, questionType, questionIndex },
     });
   }
 
@@ -79,13 +106,21 @@ export function UserContextProvider({ children }) {
     });
   }
 
+  function setClassHandler(newClass) {
+    userDispacher({
+      type: "SET_CLASS",
+      payload: { class: newClass },
+    });
+  }
+
   const context = {
     points: userState.points,
     answers: userState.answers,
     levelAmount: userState.levelAmount,
+    activeClass: userState.class,
     addAnswer: addAnswerHandler,
-    addTextAnswer: addAnswerTextHandler,
     setDefault: setDefaultHandler,
+    setClass: setClassHandler,
   };
   return (
     <UserContext.Provider value={context}>{children}</UserContext.Provider>

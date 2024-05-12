@@ -29,6 +29,7 @@ export default function Level() {
       <Question
         key={activeQuestion.id}
         questionData={activeQuestion}
+        questionIndex={levelId}
         onSelect={handleAnswerSelection}
       />
     </Background>
