@@ -3,12 +3,12 @@ import  "../styles/MainSideContent.css";
 import { useContext } from "react";
 import UserContext from "../store/user-context";
 import BigLogo from "./BigLogo";
+import AnswersPreview from "./AnswersPreview";
 
 export default function Results() {
     const {points, levelAmount, answers} = useContext(UserContext);
     const maxPoints = levelAmount * 3;  
 
-    console.log(answers);
     let message = "";
     if(points === maxPoints)
     {
@@ -27,11 +27,7 @@ export default function Results() {
             {`${points}/${maxPoints}`}</h1>
         <h2>{message}</h2>
         <MainButtonContainer isMainPage={false} />
-        {answers.map((answer, index) => {
-            return <div key={index} className="answer-container">
-                <h3>{answer.isCorrect ? "True" : "False"}</h3>
-                <p>{answer.answer}</p>
-            </div>
-        })}
+        <AnswersPreview allAnswers={answers} />
+
     </div>);
 }

@@ -1,5 +1,6 @@
 import { CLASSES } from "./classes";
 import { createContext, useReducer } from "react";
+import { getPoints } from "../util/util";
 
 const UserContext = createContext({
   points: 0,
@@ -12,16 +13,6 @@ const UserContext = createContext({
   setClass: () => {},
 });
 
-function getPoints(question, diff = 1) {
-  let points = 3;
-  question.map((answer) => {
-    if (!answer.isCorrect) {
-      points -= diff;
-    }
-    return;
-  });
-  return points < 0 ? 0 : points;
-}
 
 function userReducer(state, action) {
   if (action.type === "ADD_ANSWER") {
