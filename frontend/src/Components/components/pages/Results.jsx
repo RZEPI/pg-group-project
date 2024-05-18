@@ -1,9 +1,9 @@
-import MainButtonContainer from "./MainButtonContainer";
-import  "../styles/MainSideContent.css";
+import MainButtonContainer from "../MainButtonContainer";
+import  "../../styles/MainSideContent.css";
 import { useContext } from "react";
-import UserContext from "../store/user-context";
-import BigLogo from "./BigLogo";
-import AnswersPreview from "./AnswersPreview";
+import UserContext from "../../store/user-context";
+import BigLogo from "../BigLogo";
+import AnswersPreview from "../answersPreview/AnswersPreview";
 
 export default function Results() {
     const {points, levelAmount, answers} = useContext(UserContext);

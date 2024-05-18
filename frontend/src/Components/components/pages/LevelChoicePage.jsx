@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "../styles/LevelChoicePage.module.css";
+import styles from "../../styles/LevelChoicePage.module.css";
 
-import backArrow from "../../assets/arrow-back.png";
-import LevelList from "./LevelList";
-import LevelDescription from "./LevelDescription";
+import backArrow from "../../../assets/arrow-back.png";
+import LevelList from "../LevelList";
+import LevelDescription from "../LevelDescription";
 
-import questions from "../../assets/questions";
+import questions from "../../../assets/questions";
 
 export default function LevelChoicePage() {
   const [chosenLvl, setChosenLvl] = useState(undefined);

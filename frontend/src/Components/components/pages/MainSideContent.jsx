@@ -1,7 +1,7 @@
-import BigLogo from "./BigLogo";
-import MainButtonContainer from "./MainButtonContainer";
+import BigLogo from "../BigLogo";
+import MainButtonContainer from "../MainButtonContainer";
 
-import "../styles/MainSideContent.css";
+import "../../styles/MainSideContent.css";
 
 export default function MainSideContent() {
   return (

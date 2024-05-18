@@ -1,11 +1,11 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import LevelChoicePage from "./Components/components/LevelChoicePage";
+import LevelChoicePage from "./Components/components/pages/LevelChoicePage";
 import PageLayout from "./Components/components/PageLayout";
-import MainSideContent from "./Components/components/MainSideContent";
-import Level from "./Components/components/Level";
-import Results from "./Components/components/Results";
+import MainSideContent from "./Components/components/pages/MainSideContent";
+import Level from "./Components/components/pages/Level";
+import Results from "./Components/components/pages/Results";
 
 const router = createBrowserRouter([
   {

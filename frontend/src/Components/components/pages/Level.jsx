@@ -1,13 +1,14 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
-import Background from "./Background";
-import DUMMY_QUESTIONS from "../../assets/questions";
-import Question from "./Question";
-import tempimage from "../../assets/farm.jpg";
+import Background from "../Background";
+import DUMMY_QUESTIONS from "../../../assets/questions";
+import Question from "../Question";
+import tempimage from "../../../assets/farm.jpg";
 import { useEffect } from "react";
 
 export default function Level() {
   const params = useParams();
+  const [queryParams] = useSearchParams();
   const navigate = useNavigate();
 
   const levelId = +params.levelId;
@@ -21,7 +22,11 @@ export default function Level() {
   const activeQuestion = DUMMY_QUESTIONS[levelId] || {};
 
   function handleAnswerSelection() {
-    navigate(`/level/${levelId + 1}`);
+    if(queryParams.get("random") === "true") {
+      navigate('/');
+    }else{
+      navigate(`/level/${levelId + 1}`);
+    }
   }
 
   return (
