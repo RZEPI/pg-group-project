@@ -8,7 +8,7 @@
     padding-top: 2.8rem;
 }
 
-@media (max-width: 1000px)
+@media (width < 1000px)
 {
     .button-container
     {

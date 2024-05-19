@@ -18,3 +18,10 @@
         width: 100%;
     }    
 }
+
+@media (width < 500px) {
+    .logo{
+        width: 3.5em;
+    }
+
+}

@@ -42,3 +42,30 @@
 .incorrect{
     background-color: #f04c6a;
 }
+
+@media (width < 1000px)
+{
+    .form-container
+    {
+        margin-top: 0;
+        height: 40vh;
+        width: 100%;
+        margin-bottom: 0;
+        padding: 0;
+    }
+    .input-container{
+        flex-direction: column;
+        justify-content:space-between;
+        height: 20vh;
+    }
+}
+
+@media (width < 500px) 
+{
+    .input-container input[type=text]
+    {
+        width: 60%;
+        font-size: 2em;
+        padding: 0.7em;
+    }  
+}

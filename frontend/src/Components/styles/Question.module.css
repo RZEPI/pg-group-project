@@ -16,3 +16,21 @@
     background-color: aliceblue;
     padding: 3rem;
 }
+
+@media (width < 1000px) 
+{
+    .question-card
+    {
+        font-size: 1.5rem;
+        margin-top: 4em;
+        margin-bottom: 0;
+    }    
+}
+
+@media (width < 500px) 
+{
+    .question-card
+    {
+        font-size: 1.4rem;
+    }    
+}

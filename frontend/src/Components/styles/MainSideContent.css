@@ -19,10 +19,10 @@
 {
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 0.3rem;
-    font-size: 4.7rem;
+    letter-spacing: 0.1em;
+    font-size: 4.7em;
     font-weight: 580;
-    padding: 0.1rem;
+    padding: 0.1em;
     font-family: "Best Kids", Arial, Helvetica, sans-serif;
 }
 .main-side-container h2
@@ -81,3 +81,32 @@
     }
 }
 
+@media (width < 550px)
+{
+    .main-side-container h1
+    {
+        font-size: 3.5em;
+        letter-spacing: 0;
+    }
+    .main-side-container p
+    {
+        font-size: 1.3rem;
+    }
+    
+}
+
+@media (width < 400px)
+{
+    .main-side-container h1
+    {
+        font-size: 2.8em;
+        margin-bottom:0.3em ;
+    }
+    .main-side-container p
+    {
+        font-size: 1.2rem;
+        margin-bottom:0.3em;
+        padding:0;
+    }
+    
+}
