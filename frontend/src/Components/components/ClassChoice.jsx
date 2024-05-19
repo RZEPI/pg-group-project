@@ -15,6 +15,7 @@ export default function ClassChoice() {
   function classClickHandler(newClass) {
     if(isFolded)
       return;
+    setIsFolded(true);
     setCurrentClass(newClass);
     userContext.setClass(newClass);
   }

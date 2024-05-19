@@ -52,3 +52,32 @@
         margin: 1rem auto;
     }
 }
+
+@media (width < 1200px)
+{
+    .main-side-container
+    {
+        width: 80%;
+    }
+}
+
+@media (width < 1000px)
+{
+    .main-side-container img
+    {
+        display: none;
+    }
+
+    .main-side-container
+    {
+        margin: 2.5em auto;
+        height: 85vh;
+        justify-content:flex-start;
+    }
+
+    .description
+    {
+        margin-top: 0 !important;
+    }
+}
+

@@ -6,3 +6,15 @@
 .logo img{
     width: 3.5rem;
 }
+
+@media (width < 1000px) {
+    .logo{
+        right: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4.5em;
+    }
+    .logo img{
+        width: 100%;
+    }    
+}

@@ -19,8 +19,10 @@
 {
     text-align: center;
     border-radius: 1em;
-    background-color: #8bc4ee;
-    border: 3px solid #5e8dbf;
+    border:1px solid rgba(0,0,0,0);
+    background-color: #55c95d;
+    box-shadow: 0.2rem 0.4rem 0.05rem #594cae, 
+    0 0.9rem 2.5rem -1.4rem  #fff;
 }
 .choice-folded *
 {
@@ -63,22 +65,22 @@
 {
     text-align: center;
     font-size: 1.1em;
-    margin: 0.2em;
     font-weight: 500;
     padding: 0.25em;
-    background-color: #8bc4ee;
-    border-right: 3px solid #5e8dbf;
-    border-left: 3px solid #5e8dbf;
+    background-color: #8bda92;
+    box-shadow: 0.2rem 0.4rem 0.07rem #594cae, 
+    0 0.9rem 2.5rem -1.4rem  #fff;
     margin: 0;
 }
 .choices p:hover
 {
-    background-color: #5e8dbf;
+    background-color: #55c95d;
 }
 .choices  p:last-child
 {
-    border-bottom: 3px solid #5e8dbf;
     border-radius: 0 0 1em 1em;
+    box-shadow: 0.2rem 0.4rem 0.05rem #594cae, 
+    0 0.9rem 2.5rem -1.4rem  #fff;
 }
 
 @media (max-height: 900px)
@@ -91,5 +93,13 @@
     {
         top:0.8em;
         height: 0.8em;
+    }
+}
+
+@media (width < 1000px)
+{
+    .choice-container{
+        width: 30vw;
+        right: 4em;
     }
 }

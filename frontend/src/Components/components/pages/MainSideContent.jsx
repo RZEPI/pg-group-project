@@ -8,7 +8,7 @@ export default function MainSideContent() {
       <div className="main-side-container">
         <BigLogo />
         <h1>Zabawa Z Jednostkami</h1>
-        <p>
+        <p className="description">
           Gra stworzona przez studentów Politechniki Gdańskiej <br /> w celu
           pomocy dydaktycznej dla dzieci
         </p>
