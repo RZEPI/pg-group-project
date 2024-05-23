@@ -22,7 +22,7 @@ export default function Level() {
   const activeQuestion = DUMMY_QUESTIONS[levelId] || {};
 
   function handleAnswerSelection() {
-    if(queryParams.get("random") === "true") {
+    if(queryParams.get("back") === "main") {
       navigate('/');
     }else{
       navigate(`/level/${levelId + 1}`);

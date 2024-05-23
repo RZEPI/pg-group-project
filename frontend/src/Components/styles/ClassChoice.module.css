@@ -1,7 +1,7 @@
 .choice-container
 {
     top:3em;
-    margin-left: calc(100% - 10vw - 7em);
+    right: 7em;
     width: 10vw;
     position: absolute;
     cursor: pointer;
@@ -93,6 +93,12 @@
     {
         top:0.8em;
         height: 0.8em;
+    }
+}
+@media (width < 1200px)
+{
+    .choice-container{
+        width: 15vw;
     }
 }
 

@@ -25,7 +25,7 @@ export default function Results() {
         <BigLogo />
         <h1>Twój wynik to:<br/>
             {`${points}/${maxPoints}`}</h1>
-        <h2>{message}</h2>
+        <h2 className="message">{message}</h2>
         <MainButtonContainer isMainPage={false} />
         <AnswersPreview allAnswers={answers} />
 

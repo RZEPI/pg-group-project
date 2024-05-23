@@ -13,10 +13,17 @@ export default function MainButtonContainer({ isMainPage = true }) {
   function handleRandomLevelClick()
   {
     const randomLevelId = Math.floor(Math.random() * DUMMY_QUESTIONS.length);
-    navigate(`/level/${randomLevelId}?random=true`);
+    navigate(`/level/${randomLevelId}?back=main`);
+  }
+
+  let classes = styles["button-container"];
+
+  if(!isMainPage)
+  {
+    classes += " " + styles["button-container__results"];
   }
   return (
-    <div className={styles["button-container"]}>
+    <div className={classes}>
       {isMainPage ? (
           <Button color="yellow" onClick={setDefault} href="/level/0">
             Zagraj <br /> od początku

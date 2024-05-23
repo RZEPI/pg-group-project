@@ -17,7 +17,7 @@
   }
   .all-answers-container div {
     margin: 0.7em;
-    padding: 0.3em;
+    padding: 0.3em 0.3em 0 0.3em;
     background-color: #5e8dbf;
     border-radius: 2.5em;
 }

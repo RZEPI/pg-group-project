@@ -56,3 +56,18 @@
         font-size: 1.7em;
     }
 }
+
+
+@media (width < 1000px)
+{
+    .answers-choice
+    {
+        flex-direction: column;
+        height: 30em;
+    }
+    .choice-button
+    {
+        font-size: 1.5em;
+    }
+    
+}
