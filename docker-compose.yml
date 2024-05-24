@@ -9,16 +9,20 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: proj_grupowy
-    ports: 
-      - "52000:3306"
+    ports:
+      - "3306:3306"
     volumes:
-      - "./mysql:/docker-entrypoint-initdb.d"
-      # - "mysql-db-grupowy:/var/lib/mysql"
+      - "./db/init:/docker-entrypoint-initdb.d"
+    networks:
+      - pr_gr
   
   panel:
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin:latest
     restart: always
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: admin
     ports:
       - "8081:80"
 
