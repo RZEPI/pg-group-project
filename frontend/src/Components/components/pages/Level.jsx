@@ -9,6 +9,7 @@ import { useEffect } from "react";
 export default function Level() {
   const params = useParams();
   const [queryParams] = useSearchParams();
+  const redirect = queryParams.get("back");
   const navigate = useNavigate();
 
   const levelId = +params.levelId;
@@ -22,9 +23,12 @@ export default function Level() {
   const activeQuestion = DUMMY_QUESTIONS[levelId] || {};
 
   function handleAnswerSelection() {
-    if(queryParams.get("back") === "main") {
+    if(redirect === "main") {
       navigate('/');
-    }else{
+    }else if(redirect === "level-choice") {
+      navigate('/level-choice');
+    }    
+    else{
       navigate(`/level/${levelId + 1}`);
     }
   }
@@ -36,6 +40,7 @@ export default function Level() {
         questionData={activeQuestion}
         questionIndex={levelId}
         onSelect={handleAnswerSelection}
+        saveAnswers={redirect === null}
       />
     </Background>
   );

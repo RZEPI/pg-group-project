@@ -3,7 +3,7 @@ import styles from "../styles/LevelList.module.css";
 import LevelItem from "./LevelItem";
 
 export default function LevelList({onLevelChoise, levels, chosenLevel}) {
-    return(<div>
+    return(<div className={styles["outer-list-container"]}>
         <div className={`${styles.blur} ${styles["blur-top"]}`}></div>
         <ul className={styles["list-container"]}>
             {levels.map((level) => {

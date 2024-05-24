@@ -28,7 +28,7 @@ export default function LevelDescription({ chosenLevel }) {
             src={picture /*chosenLevel.image*/}
             alt={chosenLevel.title}
           />
-          <Button color="yellow" href={`/level/${chosenLevel.id[1]}`}>
+          <Button color="yellow" href={`/level/${chosenLevel.id[1]}?back=level-choice`}>
             Rozpocznij Grę
           </Button>
         </motion.div>

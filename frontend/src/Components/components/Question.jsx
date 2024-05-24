@@ -4,11 +4,12 @@ import UserContext from "../store/user-context";
 import { useContext } from "react";
 import AnswersText from "./answerTypes/AnswersText";
 
-export default function Question({ questionData, questionIndex, onSelect }) {
+export default function Question({ questionData, questionIndex, onSelect, saveAnswers }) {
   let answers = "";
   const userCtx = useContext(UserContext);
   function handleSelection(answer) {
-    userCtx.addAnswer(answer, questionData.type, questionIndex);
+    if(saveAnswers)
+      userCtx.addAnswer(answer, questionData.type, questionIndex);
     if (answer.isCorrect) {
       setTimeout(() => {
         onSelect();

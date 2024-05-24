@@ -3,12 +3,14 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: left;
-    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
     margin: 1rem;
+    width: 90%;
     height: 100%;
     list-style-type: none;
     overflow-y: scroll;
+    overflow-x: auto;
 }
 
 ::-webkit-scrollbar{
@@ -34,7 +36,7 @@
     min-width: 29%;
     height: 33%;
     background-color: #d8edfc;
-    margin: 1rem;
+    margin: 2%;
     border-radius: 3rem;
     color: #fff;
     font-size: 1.5rem;
@@ -48,4 +50,33 @@
 .chosen
 {
   box-shadow: 0 0 1.5rem #fff;
+}
+
+@media (width < 1200px) {
+  .outer-list-container
+  {
+    width: 80%;
+  }
+  .list-container
+  {
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+  }
+  .list-container > li
+  {
+    margin: 1em;
+    width: 65%;
+    height: 40%;
+    flex-shrink: 0;
+  }
+}
+
+@media (width < 600px)
+{
+  .list-container > li
+  {
+    height: 25%;
+  }
 }

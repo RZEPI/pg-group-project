@@ -27,6 +27,25 @@
 {
     position: absolute;
     top: 2.3rem;
-    left: 2.3rem;
-    max-width: 3rem;
+    left: 2.7rem;
+    font-size: 1.8em;
+}
+
+@media (width < 1000px){
+    .main-container
+    {
+        margin: 1em auto;
+        display: flex;
+        width: 80%;
+    }
+    .back-home
+    {
+        display: none;
+    }
+    .headline
+    {
+        margin: 3.2em auto 0;
+        font-size:3.4em;
+        width: 60%;
+    }
 }
