@@ -8,7 +8,7 @@ CREATE TABLE `Questions` (
   `class` int(11),
   `hint` text CHARACTER SET utf8,
   `img_url` text CHARACTER SET utf8,
-  `answer_type` varchar(10) DEFAULT NULL
+  `answer_type` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Answers` (
