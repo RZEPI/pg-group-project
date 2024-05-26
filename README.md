@@ -8,6 +8,15 @@ Type in Linux terminal:
 
 http://localhost:3001/
 
+## Using the question-adding script
+### Make sure your script has correct permissions
+```
+chmod +x load_data.sh
+```
+### Run the script in bash
+```
+./load_data.sh
+```
 <!-- 
 ## In order to run app.py
 Open console and move to the project directory:
@@ -35,3 +44,4 @@ To run the script type:
 ```
 py app.py
 ``` -->
+
