@@ -15,7 +15,7 @@ const router = createBrowserRouter([
       { index: true, element: <MainSideContent /> },
       { path: "level/:levelId", element: <Level /> },
       { path: "results", element: <Results /> },
-      { path: "level-choice", element: <LevelChoicePage />}
+      { path: "level-choice", element: <LevelChoicePage /> },
     ],
   },
 ]);

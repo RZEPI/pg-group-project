@@ -33,7 +33,7 @@ export default function ClassChoice() {
   return (
     <div className={styles["choice-container"]}>
       <div onClick={clickHandler} className={containerClass}>
-        <p className={styles["active-class"]}>{currentClass}</p>
+        <p className={styles["active-class"]}>{`Klasa ${currentClass}`}</p>
         <motion.span
           animate={{ rotate: isFolded ? 0 : 180}}
           className={styles["folding-arrow"]}
@@ -59,7 +59,7 @@ export default function ClassChoice() {
                 animate={{ y: 0 }}
                 transition={{ type: "tween" }}
               >
-                {cl}
+                {`Klasa ${cl}`}
               </motion.p>
             ))}
           </motion.div>

@@ -5,15 +5,18 @@ import styles from "../styles/MainButtonContainer.module.css";
 import UserContext from "../store/user-context";
 import Button from "../../UI/Button";
 
-import DUMMY_QUESTIONS from "../../assets/questions";
+import questions from "../../assets/questions";
+import { filterQuestions } from "../util/util";
 
 export default function MainButtonContainer({ isMainPage = true }) {
-  const { setDefault } = useContext(UserContext);
+  const { setDefault, activeClass } = useContext(UserContext);
   const navigate = useNavigate();
   function handleRandomLevelClick()
   {
-    const randomLevelId = Math.floor(Math.random() * DUMMY_QUESTIONS.length);
-    navigate(`/level/${randomLevelId}?back=main`);
+    const maxQuestion = filterQuestions(questions, activeClass).length;
+    const randomLevelId = Math.floor(Math.random() * maxQuestion);
+    if(maxQuestion > 0)
+      navigate(`/level/${randomLevelId}?back=main`);
   }
 
   let classes = styles["button-container"];
@@ -29,7 +32,7 @@ export default function MainButtonContainer({ isMainPage = true }) {
             Zagraj <br /> od początku
           </Button>
       ) : (
-          <Button color="yellow" href="/">
+          <Button color="yellow" onClick={setDefault} href="/">
             Wróć do menu głównego
           </Button>
       )}

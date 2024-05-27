@@ -1,6 +1,5 @@
 import styles from "../styles/LevelDescription.module.css";
 import { AnimatePresence, motion } from "framer-motion";
-import picture from "../../assets/farm.jpg";
 
 import Button from "../../UI/Button";
 
@@ -25,10 +24,10 @@ export default function LevelDescription({ chosenLevel }) {
             transition={{ duration: animation_duration }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            src={picture /*chosenLevel.image*/}
+            src={chosenLevel.image}
             alt={chosenLevel.title}
           />
-          <Button color="yellow" href={`/level/${chosenLevel.id[1]}?back=level-choice`}>
+          <Button color="yellow" href={`/level/${chosenLevel.idx}?back=level-choice`}>
             Rozpocznij Grę
           </Button>
         </motion.div>

@@ -6,8 +6,8 @@ import BigLogo from "../BigLogo";
 import AnswersPreview from "../answersPreview/AnswersPreview";
 
 export default function Results() {
-    const {points, levelAmount, answers} = useContext(UserContext);
-    const maxPoints = levelAmount * 3;  
+    const {points, answers, activeClass} = useContext(UserContext);
+    const maxPoints = Object.keys(answers).length * 3;  
 
     let message = "";
     if(points === maxPoints)
@@ -27,7 +27,7 @@ export default function Results() {
             {`${points}/${maxPoints}`}</h1>
         <h2 className="message">{message}</h2>
         <MainButtonContainer isMainPage={false} />
-        <AnswersPreview allAnswers={answers} />
+        <AnswersPreview allAnswers={answers} activeClass={activeClass}/>
 
     </div>);
 }

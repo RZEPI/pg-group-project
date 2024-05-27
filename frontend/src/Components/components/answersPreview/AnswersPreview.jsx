@@ -7,37 +7,8 @@ import styles from "../../styles/AnswersPreview.module.css";
 
 import AllAnswers from "./AllAnswers";
 
-export default function AnswersPreview({ allAnswers }) {
+export default function AnswersPreview({ allAnswers, activeClass }) {
   const [isFolded, setIsFolded] = useState(true);
-
-  allAnswers = [
-    [
-      {
-        answer: 2001,
-        isCorrect: false,
-      },
-      {
-        answer: 500,
-        isCorrect: true,
-      },
-    ],
-    [
-      {
-        answer: "NIE",
-        isCorrect: false,
-      },
-      {
-        answer: "TAK",
-        isCorrect: true,
-      },
-    ],
-    [
-      {
-        answer: "20 butelek",
-        isCorrect: true,
-      },
-    ],
-  ];
 
   function containerClickHandler() {
     setIsFolded((prevState) => !prevState);
@@ -61,7 +32,7 @@ export default function AnswersPreview({ allAnswers }) {
         </motion.h2>
       </div>
       <AnimatePresence>
-        {!isFolded && <AllAnswers allAnswers={allAnswers} />}
+        {!isFolded && <AllAnswers allAnswers={allAnswers} activeClass={activeClass} />}
       </AnimatePresence>
     </div>
   );

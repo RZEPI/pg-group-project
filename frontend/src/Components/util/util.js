@@ -8,3 +8,7 @@ export function getPoints(question, diff = 1) {
     });
     return points < 0 ? 0 : points;
   }
+
+export function filterQuestions(questions, activeClass) {
+    return questions.filter((question) => question.level === activeClass);
+  }

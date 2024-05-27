@@ -4,7 +4,7 @@ import { getPoints } from "../util/util";
 
 const UserContext = createContext({
   points: 0,
-  answers: [],
+  answers: {},
   levelAmount: 0,
   activeClass: CLASSES.THIRD,
   addAnswer: () => {},
@@ -18,11 +18,11 @@ function userReducer(state, action) {
   if (action.type === "ADD_ANSWER") {
     const { answer, questionType, questionIndex } = action.payload;
 
-    const isQuestionInitiated = state.answers.length > questionIndex;
+    const isQuestionInitiated = state.answers[questionIndex];
     let questionAnswers;
     let points;
 
-    let newAnswers = [...state.answers];
+    let newAnswers = {...state.answers};
 
     if (isQuestionInitiated) {
       questionAnswers = newAnswers[questionIndex];
@@ -32,9 +32,8 @@ function userReducer(state, action) {
       if(!isAnswerInserted)
         questionAnswers.push(answer);
     } else {
-      const idx = newAnswers.length;
-      newAnswers = [...newAnswers, [answer]];
-      questionAnswers = newAnswers[idx];
+      newAnswers = {...newAnswers, [questionIndex]:[answer]};
+      questionAnswers = newAnswers[questionIndex];
     }
 
     if (answer.isCorrect) {
@@ -62,16 +61,15 @@ function userReducer(state, action) {
 
   if (action.type === "SET_DEFAULT") {
     return {
-      class: CLASSES.THIRD,
+      ...state,
       points: 0,
-      levelAmount: 0,
       answers: [],
     };
   }
   if (action.type === "SET_CLASS") {
     return {
       ...state,
-      class: action.payload.class,
+      activeClass: action.payload.newClass,
     };
   }
   return state;
@@ -81,7 +79,8 @@ export function UserContextProvider({ children }) {
   const [userState, userDispacher] = useReducer(userReducer, {
     points: 0,
     levelAmount: 0,
-    answers: [],
+    activeClass: CLASSES.THIRD,
+    answers: {},
   });
 
   function addAnswerHandler(answer, questionType, questionIndex) {
@@ -100,7 +99,7 @@ export function UserContextProvider({ children }) {
   function setClassHandler(newClass) {
     userDispacher({
       type: "SET_CLASS",
-      payload: { class: newClass },
+      payload: { newClass: newClass },
     });
   }
 
@@ -108,7 +107,7 @@ export function UserContextProvider({ children }) {
     points: userState.points,
     answers: userState.answers,
     levelAmount: userState.levelAmount,
-    activeClass: userState.class,
+    activeClass: userState.activeClass,
     addAnswer: addAnswerHandler,
     setDefault: setDefaultHandler,
     setClass: setClassHandler,

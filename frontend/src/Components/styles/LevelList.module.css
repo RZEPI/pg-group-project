@@ -33,7 +33,7 @@
 
 .list-container > li
 {
-    min-width: 29%;
+    width: 29%;
     height: 33%;
     background-color: #d8edfc;
     margin: 2%;
@@ -45,6 +45,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.list-container > li > p
+{
+    padding: 0.3em;
 }
 
 .chosen

@@ -1,10 +1,10 @@
 export const CLASSES = {
-    THIRD: "Klasa 3",
-    FOURTH: "Klasa 4",
-    FIFTH: "Klasa 5",
-    SIXTH: "Klasa 6",
-    SEVENTH: "Klasa 7",
-    EIGHTH: "Klasa 8",
+    THIRD: 3,
+    FOURTH: 4,
+    FIFTH: 5,
+    SIXTH: 6,
+    SEVENTH: 7,
+    EIGHTH: 8
 }
 
 export const ALL_CLASSES = Object.values(CLASSES);

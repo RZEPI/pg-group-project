@@ -57,6 +57,14 @@
     }
 }
 
+@media (width < 1350px)
+{
+    .answers-choice
+    {
+        flex-direction: column;
+    }
+    
+}
 
 @media (width < 1000px)
 {
