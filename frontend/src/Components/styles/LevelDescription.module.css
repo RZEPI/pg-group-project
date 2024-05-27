@@ -26,7 +26,10 @@
     margin: 0;
     padding: 0;
     max-height: 15vh;
+    width: 15vw;
     border-radius: 4rem;
+    object-fit: cover;
+    object-position: 0 70%;
     background-color: #8276da;
 }
 .unchosen

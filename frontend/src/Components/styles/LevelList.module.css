@@ -50,6 +50,7 @@
 .list-container > li > p
 {
     padding: 0.3em;
+    text-shadow: 1px 1px #000, 1px -1px #000, -1px 1px #000, -1px -1px #000;
 }
 
 .chosen

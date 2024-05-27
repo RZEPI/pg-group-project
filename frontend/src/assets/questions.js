@@ -9,7 +9,7 @@ export default [
         answers:[500],
         type: "text",
         level: 3,
-        image: "/assets/farm.jpg"
+        image: "/assets/Artboard2.png"
     },
     {
         id: 'q1',
@@ -18,7 +18,7 @@ export default [
         answers:["TAK","NIE"],
         type: "trueFalse",
         level: 5,
-        image: "/assets/farma3.jpg"
+        image: "/assets/Artboard1.png"
     },
     {
         id: 'q2',
@@ -32,7 +32,7 @@ export default [
         ],
         type: "abc",
         level: 3,
-        image: "/assets/farm.jpg"
+        image: "/assets/Artboard4.png"
     },
     {
         id: 'q3',
@@ -46,7 +46,7 @@ export default [
         ],
         type: "abc",
         level: 4,
-        image: "/assets/farma4.jpeg"
+        image: "/assets/Artboard4.png"
     },
     {
         id:"q4",
@@ -60,7 +60,7 @@ export default [
         ],
         type: "abc",
         level:5,
-        image: "/assets/farma2.jpg"
+        image: "/assets/Artboard1.png"
     },
    
     {
@@ -70,7 +70,7 @@ export default [
         answers:[666],
         type: "text",
         level: 4,
-        image: "/assets/farma3.jpg"
+        image: "/assets/Artboard4.png"
     },
     {
         id:"q6",
@@ -79,7 +79,7 @@ export default [
         answers:[80],
         type: "text",
         level:5,
-        image: "/assets/farma3.jpg"
+        image: "/assets/Artboard2.png"
     },
     {
         id:"q7",
@@ -88,7 +88,7 @@ export default [
         answers:["6h 15min", "7h 30min", "8h", "6h"],   
         type: "abc",
         level:5,
-        image: "/assets/farma2.jpg"
+        image: "/assets/Artboard1.png"
     },
     {
         id:"q8",
@@ -97,7 +97,7 @@ export default [
         answers:["TAK","NIE"],
         type: "trueFalse",
         level: 4,
-        image: "/assets/farm.jpg"
+        image: "/assets/Artboard1.png"
     },
     {
         id:"q9",
@@ -106,7 +106,7 @@ export default [
         type: "text",
         answers:[10000],
         level: 6,
-        image: "/assets/farma4.jpeg"
+        image: "/assets/Artboard3.png"
     },
     {
         id:"q10",
@@ -115,7 +115,7 @@ export default [
         answers:[144],
         type: "text",
         level:5,
-        image: "/assets/farma2.jpg"
+        image: "/assets/Artboard3.png"
     },
     {
         id:"q11",
@@ -124,7 +124,7 @@ export default [
         answers:[400],
         type: "text",
         level: 8,
-        image: "/assets/farma3.jpg"
+        image: "/assets/farma2.jpg"
     },
     {
         id:"q12",
@@ -133,7 +133,7 @@ export default [
         answers:["Pan Kazio","Pan Waldek", "Żaden z nich"],
         type: "abc",
         level: 7,
-        image: "/assets/farm.jpg"
+        image: "/assets/Artboard1.png"
     },
     {
         id:"q13",
@@ -151,7 +151,7 @@ export default [
         answers:[4000],
         type: "text",
         level: 3,
-        image: "/assets/farma3.jpg"
+        image: "/assets/Artboard3.png"
     },
     {
         id: "q15",
@@ -160,7 +160,7 @@ export default [
         answers:["Kazio","Jadzia","Oboje", "Żadne z nich"],
         level: 4,
         type: "abc",
-        image: "/assets/farma4.jpeg"
+        image: "/assets/Artboard1.png"
     },
     {
         id:"q16",
@@ -169,7 +169,7 @@ export default [
         answers:[1.45, 14.5, 0.145, 145],
         type: "abc",
         level: 4,
-        image: "/assets/farma2.jpg"
+        image: "/assets/Artboard3.png",
     },
     {
         id:"q17",
@@ -178,6 +178,6 @@ export default [
         answers:["TAK","NIE"],
         type: "trueFalse",
         level: 4,
-        image: "/assets/farm.jpg"
+        image: "/assets/Artboard1.png"
     }
 ];
