@@ -1,6 +1,7 @@
 version: '3.1'
 
 services:
+
   backend:
     build:
       context: .
@@ -30,6 +31,7 @@ services:
       - pr_gr
 
   db:
+    container_name: db
     image: mysql:5.7
     restart: always
     environment:
@@ -37,13 +39,15 @@ services:
       MYSQL_DATABASE: proj_grupowy
     ports: 
       - "3306:3306"
+    command:
+      --secure-file-priv=""
     volumes:
-      - "./db/mysql:/docker-entrypoint-initdb.d"
-      # - "mysql-db-grupowy:/var/lib/mysql"
+      - "./db/init:/docker-entrypoint-initdb.d"
+      - "mysql-data:/var/lib/mysql"
     networks:
       - pr_gr
-  
-  panel:
+
+  phpmyadmin:
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin:latest
     restart: always
@@ -51,6 +55,9 @@ services:
       - "8081:80"
     networks:
       - pr_gr
-
 networks:
   pr_gr:
+
+volumes:
+  mysql-data:
+

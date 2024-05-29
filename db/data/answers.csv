@@ -1,0 +1,32 @@
+question_title,answer_text,is_correct
+"Rolnik z krową w stodole","20",1
+"Rolnik z krową w stodole","10",0
+"Rolnik z krową w stodole","2",0
+"Rolnik z krową w stodole","15",0
+"Gospodyni w kuchni","500",1
+"Rolnik z mapą w samochodzie","TAK",1
+"Rolnik z mapą w samochodzie","NIE",0
+"Syn i uciekający autobus przy przystanku","10000",1
+"Karmienie zwierząt","30",0
+"Karmienie zwierząt","12000",0
+"Karmienie zwierząt","45",0
+"Karmienie zwierząt","250",1
+"Kupowanie desek","45",1
+"Kupowanie desek","75",0
+"Kupowanie desek","2,5",0
+"Kupowanie desek","450",0
+"Uprawa dyni","666",1
+"Pieczenie ciasta","80",1
+"Napełnianie basenu","22500s = 6h 15min",1
+"Zbieranie jabłek","144",1
+"Ogradzanie pola","400",1
+"Afera pszeniczna","Pan Kazio",1
+"Afera pszeniczna","Pan Waldek",0
+"Afera pszeniczna","żaden z nich",0
+"Ile słoików miodu?","2",0
+"Ile słoików miodu?","12",0
+"Ile słoików miodu?","20",1
+"Ile słoików miodu?","5",0
+"Malowanie wiaty","TAK",1
+"Malowanie wiaty","NIE",0
+"Zbieranie plonów","50L",1
