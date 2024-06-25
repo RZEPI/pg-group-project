@@ -4,11 +4,12 @@ import UserContext from "../store/user-context";
 import { useContext } from "react";
 import AnswersText from "./answerTypes/AnswersText";
 
-export default function Question({ questionData, onSelect }) {
+export default function Question({ questionData, questionIndex, onSelect, saveAnswers }) {
   let answers = "";
   const userCtx = useContext(UserContext);
   function handleSelection(answer) {
-    userCtx.addAnswer(answer, questionData.type);
+    if(saveAnswers)
+      userCtx.addAnswer(answer, questionData.type, questionIndex);
     if (answer.isCorrect) {
       setTimeout(() => {
         onSelect();
@@ -16,16 +17,10 @@ export default function Question({ questionData, onSelect }) {
     }
   }
 
-  function handleTextAnswer(answer, points) {
-    userCtx.addTextAnswer(answer, points);
-    setTimeout(() => {
-      onSelect();
-    }, 2000);
-  }
-
   if (questionData.type === "abc" || questionData.type === "trueFalse") {
     answers = (
       <AnswersChoice
+        key={questionData.id}
         answers={questionData.answers}
         onSelect={handleSelection}
       />
@@ -33,8 +28,9 @@ export default function Question({ questionData, onSelect }) {
   } else if (questionData.type === "text") {
     answers = (
       <AnswersText
-        correctAnswer={questionData.answers[0]}
-        onSelect={handleTextAnswer}
+        key={questionData.id}
+        correctAnswer={+questionData.answers[0]}
+        onSelect={handleSelection}
       />
     );
   }

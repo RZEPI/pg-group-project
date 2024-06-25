@@ -1,0 +1,19 @@
+.correct
+{
+    color: rgb(172, 230, 172);
+    padding-bottom: 1em;
+}
+
+.incorrect
+{
+    color: rgb(255, 193, 193);
+}
+
+@media (width < 600px)
+{
+    .correct
+    .incorrect
+    {
+        padding-bottom: 0.5em;
+    }
+}

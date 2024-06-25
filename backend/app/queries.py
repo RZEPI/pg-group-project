@@ -1,0 +1,5 @@
+QUESTION_QUERY = "SELECT question_id, answer_type, question_text, question_title, class, hint, img_url FROM Questions where question_id = %s"
+ALL_QUESTIONS_QUERY = "SELECT question_title, question_id FROM Questions WHERE class = %s"
+NEXT_QUESTION_ID_QUERY = "SELECT question_id FROM Questions where question_id > %s and class = %s ORDER BY question_id"
+ANSWERS_QUERY = "SELECT answer_text, is_correct FROM Answers WHERE question_title = %s"
+FIRST_QUESTION_QUERY = "SELECT question_id, answer_type, question_text, question_title, class, hint, img_url FROM Questions WHERE class = %s ORDER BY question_id"

@@ -1,0 +1,51 @@
+.level-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.level-container > *
+{
+    margin: 1rem;
+}
+
+.level-container > h1
+{
+    text-align: center;
+    font-size: 2.9rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.level-container > img
+{
+    margin: 0;
+    padding: 0;
+    max-height: 15vh;
+    width: 15vw;
+    border-radius: 4rem;
+    object-fit: cover;
+    object-position: 0 70%;
+    background-color: #8276da;
+}
+.unchosen
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+@media (width < 1000px) {
+    .unchosen, 
+    .level-container
+    {
+        display: none;
+    }
+}

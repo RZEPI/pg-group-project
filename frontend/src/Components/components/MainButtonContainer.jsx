@@ -1,13 +1,37 @@
-import Button from "../../UI/Button";
-import {Link} from "react-router-dom";
-import styles from "../styles/MainButtonContainer.module.css";
+import { useContext } from "react";
 
-export default function MainButtonContainer({isMainPage = true}) {
-  return(
-    <div className={styles["button-container"]}>
-        {isMainPage ? <Link to='/level'><Button color="yellow" side="main">Zagraj <br/> od początku</Button></Link> : <Link to='/'><Button color="yellow" side="main">Wróć do menu głównego</Button></Link>}
-        <Button color="blue" side="main">Losowy <br/> poziom</Button>
-        <Button color="red" side="main">Wybierz <br/> poziom</Button>
+import styles from "../styles/MainButtonContainer.module.css";
+import UserContext from "../store/user-context";
+import Button from "../../UI/Button";
+import { getClassIdFromUrl } from "../util/http";
+
+export default function MainButtonContainer({ isMainPage = true }) {
+  const classId = getClassIdFromUrl(window.location.href);
+  const { setDefault } = useContext(UserContext);
+
+  let classes = styles["button-container"];
+
+  if(!isMainPage)
+  {
+    classes += " " + styles["button-container__results"];
+  }
+  return (
+    <div className={classes}>
+      {isMainPage ? (
+          <Button color="yellow" onClick={setDefault} href={`/level/first/?classId=${classId}`}>
+            Zagraj <br/> od początku
+          </Button>
+      ) : (
+          <Button color="yellow" onClick={setDefault} href={`/?classId=${classId}`}>
+            Wróć do menu głównego
+          </Button>
+      )}
+      <Button color="blue" onClick={setDefault} href={`/level/random?classId=${classId}&back=main`}>
+        Losowy <br/> poziom
+      </Button>
+      <Button color="red" href={`/level-choice?classId=${classId}`}>
+        Wybierz <br/> poziom
+      </Button>
     </div>
-  )
-} 
+  );
+}

@@ -1,10 +1,17 @@
 import { useState, useRef } from "react";
+import { motion } from "framer-motion";
 
-import styles from "../../styles/Question.module.css";
+import styles from "../../styles/AnswersChoice.module.css";
 
 export default function AnswersChoice({ answers, onSelect }) {
   const [selectedAnswer, setSelectedAnswer] = useState([]);
   const [isLevelFinished, setIsLevelFinished] = useState(false);
+
+  const variants = {
+    correct: { y: [10, -10, 10, -10, 10, 0], scale: 1.1 },
+    incorrect: { x: [-10, 10, -10, 10, -10, 0], scale: 1 },
+    hover: { scale: 1.1 },
+  };
 
   const shuffledAnswers = useRef();
 
@@ -24,23 +31,35 @@ export default function AnswersChoice({ answers, onSelect }) {
   return (
     <div className={styles["answers-choice"]}>
       {shuffledAnswers.current.map((answer) => {
-        let classNames = styles["question-card"];
+        let classNames = styles["choice-button"];
+        let variant;
+        let isHoverOn = !isLevelFinished;
         const chosenAnswer = selectedAnswer.find((a) => a.answer === answer);
-        if (chosenAnswer)
-        {
-          classNames += chosenAnswer.isCorrect
-            ? ` ${styles.correct}`
-            : ` ${styles.incorrect}`;
-        }
-        else classNames += ` ${styles.available}`;
+        if (chosenAnswer) {
+          if (chosenAnswer.isCorrect) {
+            classNames += ` ${styles.correct}`;
+            variant = "correct";
+          } else {
+            classNames += ` ${styles.incorrect}`;
+            variant =
+              selectedAnswer[selectedAnswer.length - 1]?.answer === answer
+                ? "incorrect"
+                : null;
+          }
+        } else classNames += ` ${styles.available}`;
         return (
-          <button
+          <motion.button
+            variants={variants}
+            whileHover={isHoverOn ? "hover" : null}
+            animate={variant}
             className={classNames}
-            key={answer}
-            onClick={() => !isLevelFinished ? handleAnswerClick(answer) : null}
+            key={`${answer}_${Math.random()}`}
+            onClick={() =>
+              !isLevelFinished ? handleAnswerClick(answer) : null
+            }
           >
             {answer}
-          </button>
+          </motion.button>
         );
       })}
     </div>
