@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 import styles from "../../styles/AllAnswers.module.css";
 
 import UsersAnswers from "./UsersAnswers";
-import { filterQuestions, getPoints } from "../../util/util";
+import { useContext } from "react";
+import UserContext from "../../store/user-context";
 
-import questions from "../../../assets/questions";
+export default function AllAnswers() {
+  const { answers: allAnswers } = useContext(UserContext);
 
-export default function AllAnswers({ allAnswers, activeClass }) {
-  const filteredQuestions = filterQuestions(questions, activeClass);
   return (
     <motion.div
       className={styles["all-answers-container"]}
@@ -23,9 +23,8 @@ export default function AllAnswers({ allAnswers, activeClass }) {
       animate="visible"
     >
       {Object.keys(allAnswers).map((questionKey, questionIndex) => {
-        const answersForQuestion = allAnswers[questionKey];
-        const question = filteredQuestions[questionIndex];
-        const points = getPoints(answersForQuestion, question.type === "text" ? 0.5 : 1);
+        const answersForQuestion = allAnswers[questionKey].answers;
+        const points = allAnswers[questionKey].points;
         return (
           <motion.div
             key={questionIndex}
@@ -34,7 +33,7 @@ export default function AllAnswers({ allAnswers, activeClass }) {
           >
             <div className={styles["question-header"]}>
               <h3>{`${questionIndex}.`}</h3>
-              <h3>{filteredQuestions[questionIndex].title}</h3>
+              <h3></h3>
               <h3>{`${points}pkt.`}</h3>
             </div>
             <UsersAnswers

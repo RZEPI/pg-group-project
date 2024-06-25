@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 */node_modules
 /.pnp
@@ -26,7 +23,4 @@ yarn-error.log*
 response.json
 */venv
 */.venv
-=======
-venv/
-response.json
->>>>>>> 22fdb012108eb22c790c1ec90a86ccdc00dcfa7f
+*/__pycache__

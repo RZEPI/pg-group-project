@@ -1,18 +1,12 @@
-import { CLASSES } from "./classes";
 import { createContext, useReducer } from "react";
 import { getPoints } from "../util/util";
 
 const UserContext = createContext({
   points: 0,
   answers: {},
-  levelAmount: 0,
-  activeClass: CLASSES.THIRD,
   addAnswer: () => {},
-  addTextAnswer: () => {},
   setDefault: () => {},
-  setClass: () => {},
 });
-
 
 function userReducer(state, action) {
   if (action.type === "ADD_ANSWER") {
@@ -22,18 +16,20 @@ function userReducer(state, action) {
     let questionAnswers;
     let points;
 
-    let newAnswers = {...state.answers};
+    let newAnswers = { ...state.answers };
 
     if (isQuestionInitiated) {
-      questionAnswers = newAnswers[questionIndex];
+      questionAnswers = newAnswers[questionIndex].answers;
       const isAnswerInserted = questionAnswers.find(
         (ans) => ans.answer === answer.answer
       );
-      if(!isAnswerInserted)
-        questionAnswers.push(answer);
+      if (!isAnswerInserted) questionAnswers.push(answer);
     } else {
-      newAnswers = {...newAnswers, [questionIndex]:[answer]};
-      questionAnswers = newAnswers[questionIndex];
+      newAnswers = {
+        ...newAnswers,
+        [questionIndex]: { questionType: questionType, answers: [answer], points: undefined },
+      };
+      questionAnswers = newAnswers[questionIndex].answers;
     }
 
     if (answer.isCorrect) {
@@ -48,12 +44,10 @@ function userReducer(state, action) {
     }
 
     const newPoints = state.points + points;
-    const newLevelAmount = answer.isCorrect
-      ? state.levelAmount + 1
-      : state.levelAmount;
+    newAnswers[questionIndex].points = points;
+
     return {
       ...state,
-      levelAmount: newLevelAmount,
       points: newPoints,
       answers: newAnswers,
     };
@@ -66,20 +60,12 @@ function userReducer(state, action) {
       answers: [],
     };
   }
-  if (action.type === "SET_CLASS") {
-    return {
-      ...state,
-      activeClass: action.payload.newClass,
-    };
-  }
   return state;
 }
 
 export function UserContextProvider({ children }) {
   const [userState, userDispacher] = useReducer(userReducer, {
     points: 0,
-    levelAmount: 0,
-    activeClass: CLASSES.THIRD,
     answers: {},
   });
 
@@ -96,21 +82,11 @@ export function UserContextProvider({ children }) {
     });
   }
 
-  function setClassHandler(newClass) {
-    userDispacher({
-      type: "SET_CLASS",
-      payload: { newClass: newClass },
-    });
-  }
-
   const context = {
     points: userState.points,
     answers: userState.answers,
-    levelAmount: userState.levelAmount,
-    activeClass: userState.activeClass,
     addAnswer: addAnswerHandler,
     setDefault: setDefaultHandler,
-    setClass: setClassHandler,
   };
   return (
     <UserContext.Provider value={context}>{children}</UserContext.Provider>

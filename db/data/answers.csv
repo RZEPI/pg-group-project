@@ -17,7 +17,10 @@ question_title,answer_text,is_correct
 "Kupowanie desek","450",0
 "Uprawa dyni","666",1
 "Pieczenie ciasta","80",1
-"Napełnianie basenu","22500s = 6h 15min",1
+"Napełnianie basenu","6h 15min",1
+"Napełnianie basenu","6h",0
+"Napełnianie basenu","6h 30min",0
+"Napełnianie basenu","6h 45min",0
 "Zbieranie jabłek","144",1
 "Ogradzanie pola","400",1
 "Afera pszeniczna","Pan Kazio",1
@@ -30,3 +33,11 @@ question_title,answer_text,is_correct
 "Malowanie wiaty","TAK",1
 "Malowanie wiaty","NIE",0
 "Zbieranie plonów","50L",1
+"Biegający Marek","4000",1
+"Teleturniej","Kazio",1
+"Teleturniej","Jadzia",0
+"Marek mierzy wzrost","1,45",1
+"Marek mierzy wzrost","0,145",0
+"Marek mierzy wzrost","14,5",0
+"Wyprawa wędkarska","TAK",1
+"Wyprawa wędkarska","NIE",0

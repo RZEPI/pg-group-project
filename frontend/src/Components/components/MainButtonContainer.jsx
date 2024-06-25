@@ -1,23 +1,13 @@
 import { useContext } from "react";
 
-import { useNavigate } from "react-router-dom";
 import styles from "../styles/MainButtonContainer.module.css";
 import UserContext from "../store/user-context";
 import Button from "../../UI/Button";
-
-import questions from "../../assets/questions";
-import { filterQuestions } from "../util/util";
+import { getClassIdFromUrl } from "../util/http";
 
 export default function MainButtonContainer({ isMainPage = true }) {
-  const { setDefault, activeClass } = useContext(UserContext);
-  const navigate = useNavigate();
-  function handleRandomLevelClick()
-  {
-    const maxQuestion = filterQuestions(questions, activeClass).length;
-    const randomLevelId = Math.floor(Math.random() * maxQuestion);
-    if(maxQuestion > 0)
-      navigate(`/level/${randomLevelId}?back=main`);
-  }
+  const classId = getClassIdFromUrl(window.location.href);
+  const { setDefault } = useContext(UserContext);
 
   let classes = styles["button-container"];
 
@@ -28,19 +18,19 @@ export default function MainButtonContainer({ isMainPage = true }) {
   return (
     <div className={classes}>
       {isMainPage ? (
-          <Button color="yellow" onClick={setDefault} href="/level/0">
-            Zagraj <br /> od początku
+          <Button color="yellow" onClick={setDefault} href={`/level/first/?classId=${classId}`}>
+            Zagraj <br/> od początku
           </Button>
       ) : (
-          <Button color="yellow" onClick={setDefault} href="/">
+          <Button color="yellow" onClick={setDefault} href={`/?classId=${classId}`}>
             Wróć do menu głównego
           </Button>
       )}
-      <Button color="blue" onClick={handleRandomLevelClick}>
-        Losowy <br /> poziom
+      <Button color="blue" onClick={setDefault} href={`/level/random?classId=${classId}&back=main`}>
+        Losowy <br/> poziom
       </Button>
-      <Button color="red" href="/level-choice">
-        Wybierz <br /> poziom
+      <Button color="red" href={`/level-choice?classId=${classId}`}>
+        Wybierz <br/> poziom
       </Button>
     </div>
   );

@@ -1,23 +1,22 @@
-import { useContext, useState } from "react";
+import {  useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import styles from "../styles/ClassChoice.module.css";
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import UserContext from "../store/user-context";
 import { ALL_CLASSES } from "../store/classes";
 
 export default function ClassChoice() {
-  const userContext = useContext(UserContext);
-  const { activeClass: activeClass } = userContext;
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isFolded, setIsFolded] = useState(true);
-  const [currentClass, setCurrentClass] = useState(activeClass);
+  const [currentClass, setCurrentClass] = useState(searchParams.get("classId") || ALL_CLASSES[0]);
 
   function classClickHandler(newClass) {
     if(isFolded)
       return;
     setIsFolded(true);
     setCurrentClass(newClass);
-    userContext.setClass(newClass);
+    setSearchParams({ classId: newClass });
   }
 
   function clickHandler() {

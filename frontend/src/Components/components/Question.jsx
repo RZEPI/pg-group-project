@@ -29,7 +29,7 @@ export default function Question({ questionData, questionIndex, onSelect, saveAn
     answers = (
       <AnswersText
         key={questionData.id}
-        correctAnswer={questionData.answers[0]}
+        correctAnswer={+questionData.answers[0]}
         onSelect={handleSelection}
       />
     );

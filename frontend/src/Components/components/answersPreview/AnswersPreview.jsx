@@ -7,13 +7,12 @@ import styles from "../../styles/AnswersPreview.module.css";
 
 import AllAnswers from "./AllAnswers";
 
-export default function AnswersPreview({ allAnswers, activeClass }) {
+export default function AnswersPreview() {
   const [isFolded, setIsFolded] = useState(true);
 
   function containerClickHandler() {
     setIsFolded((prevState) => !prevState);
   }
-
 
   const mainContainerClasses = isFolded
     ? `${styles["preview-container"]} ${styles["folded"]}`
@@ -32,7 +31,7 @@ export default function AnswersPreview({ allAnswers, activeClass }) {
         </motion.h2>
       </div>
       <AnimatePresence>
-        {!isFolded && <AllAnswers allAnswers={allAnswers} activeClass={activeClass} />}
+        {!isFolded && <AllAnswers />}
       </AnimatePresence>
     </div>
   );

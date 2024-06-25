@@ -1,21 +1,25 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import LevelChoicePage from "./Components/components/pages/LevelChoicePage";
+import LevelChoicePage, {loader as choiceLoader} from "./Components/components/pages/LevelChoicePage";
 import PageLayout from "./Components/components/pages/PageLayout";
 import MainSideContent from "./Components/components/pages/MainSideContent";
-import Level from "./Components/components/pages/Level";
+import Level, {startLoader, randomLoader, loader as levelLoader} from "./Components/components/pages/Level";
 import Results from "./Components/components/pages/Results";
+import ErrorBoundry from "./Components/components/pages/ErrorBoundry";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <PageLayout />,
+    errorElement: <ErrorBoundry />,
     children: [
       { index: true, element: <MainSideContent /> },
-      { path: "level/:levelId", element: <Level /> },
+      {path: "level/first", element: <Level />, loader: startLoader},
+      {path: "level/random", element: <Level />, loader: randomLoader},
+      { path: "level/:levelId", element: <Level />, loader: levelLoader},
       { path: "results", element: <Results /> },
-      { path: "level-choice", element: <LevelChoicePage /> },
+      { path: "level-choice", element: <LevelChoicePage />, loader: choiceLoader },
     ],
   },
 ]);

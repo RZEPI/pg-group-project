@@ -4,7 +4,7 @@ export function getPoints(question, diff = 1) {
       if (!answer.isCorrect) {
         points -= diff;
       }
-      return;
+      return true;
     });
     return points < 0 ? 0 : points;
   }

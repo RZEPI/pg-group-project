@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { Link, useNavigate, useLoaderData } from "react-router-dom";
 import styles from "../../styles/LevelChoicePage.module.css";
 
@@ -7,22 +7,18 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import LevelList from "../LevelList";
 import LevelDescription from "../LevelDescription";
-import UserContext from "../../store/user-context";
 
-import { queryClient, fetchAllQuestions } from "../../util/http";
-import questions from "../../../assets/questions";
-import { filterQuestions } from "../../util/util";
+import { fetchQuestionsForClass } from "../../util/http";
 
 export default function LevelChoicePage() {
   const [chosenLvl, setChosenLvl] = useState(undefined);
 
-  const context = useContext(UserContext);
-  const filteredQuestions = filterQuestions(questions, context.activeClass);
-
   const navigate = useNavigate();
 
+  const {questions} = useLoaderData();
+
   function levelChoiceHandler(level) {
-    const idx = filteredQuestions.indexOf(level)
+    const idx = questions.indexOf(level)
     if (window.innerWidth < 1000) {
       navigate(`/level/${idx}?back=level-choice`);
     } else setChosenLvl({...level, idx});
@@ -43,7 +39,7 @@ export default function LevelChoicePage() {
       <div className={styles["main-container"]}>
         <LevelList
           onLevelChoise={levelChoiceHandler}
-          levels={filteredQuestions}
+          levels={questions}
           chosenLevel={chosenLvl}
         />
         <LevelDescription chosenLevel={chosenLvl} />
@@ -52,10 +48,7 @@ export default function LevelChoicePage() {
   );
 }
 
-export function loader() {
-  const questions = queryClient.fetchQuery({
-    queryKey: "questions",
-    queryFn: ({ signal }) => fetchAllQuestions({ signal }),
-  });
-  return questions;
+export function loader({request}) {
+  const classId = new URL(request.url).searchParams.get("classId");
+  return fetchQuestionsForClass({classId});
 }

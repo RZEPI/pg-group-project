@@ -1,57 +1,63 @@
-import { useContext } from "react";
-import { useNavigate, useSearchParams, useParams } from "react-router-dom";
-
-import { queryClient, fetchQuestion } from "../../util/http";
+import {
+  useNavigate,
+  useSearchParams,
+  useLoaderData
+} from "react-router-dom";
 
 import Background from "../Background";
 import Question from "../Question";
-import questions from "../../../assets/questions";
-
-import UserContext from "../../store/user-context";
-import { filterQuestions } from "../../util/util";
+import {
+  fetchFirstQuestion,
+  fetchQuestion,
+  getClassIdFromUrl,
+  fetchRandomQuestion,
+} from "../../util/http";
 
 export default function Level() {
-  const context = useContext(UserContext);
-  const levelId = +useParams().levelId;
+  const question = useLoaderData();
 
-  const fileteredQuestions = filterQuestions(questions, context.activeClass);
   const [queryParams] = useSearchParams();
   const redirect = queryParams.get("back");
   const navigate = useNavigate();
-
-  if(levelId >= fileteredQuestions.length) {
-    navigate("/results");
-    return;
-  }
-
-  const questionData = fileteredQuestions[levelId];
+  const doSave = redirect === null;
 
   function handleAnswerSelection() {
     if (redirect === "main") {
       navigate("/");
     } else if (redirect === "level-choice") {
       navigate("/level-choice");
+    } else if (question.next_question_id) {
+      navigate(`/level/${question.next_question_id}`);
     } else {
-      navigate(`/level/${levelId + 1}`);
+      navigate("/results");
     }
   }
 
-
   return (
-    <Background image={questionData.image}>
+    <Background image={question.img_url}>
       <Question
-        key={questionData.id}
-        questionData={questionData}
-        questionIndex={questionData.id}
+        key={question.id}
+        questionData={question}
+        questionIndex={question.id}
         onSelect={handleAnswerSelection}
-        saveAnswers={redirect === null}
+        saveAnswers={doSave}
       />
     </Background>
   );
 }
 
+export function startLoader({ request }) {
+  const classId = getClassIdFromUrl(request.url);
+  return fetchFirstQuestion({ classId });
+}
+
 export function loader({ params }) {
   const levelId = +params.levelId;
 
-  return levelId;
+  return fetchQuestion({ id: levelId });
+}
+
+export function randomLoader({ request }) {
+  const classId = getClassIdFromUrl(request.url);
+  return fetchRandomQuestion({ classId });
 }
