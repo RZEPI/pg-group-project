@@ -17,7 +17,7 @@ chmod +x load_data.sh
 ```
 ./load_data.sh
 ```
-<!-- 
+
 ## In order to run app.py
 Open console and move to the project directory:
 ```
@@ -33,8 +33,7 @@ py -m venv venv
 ### On Linux
 ```
 python3 -m venv venv
-source venv/bin/activate
-sudo apt-get install python3-dev default-libmysqlclient-dev build-essential pkg-config
+.\venv\bin\activate
 ```
 Download packages listed in requirements.txt:
 ```
@@ -43,5 +42,9 @@ pip install -r requirements.txt
 To run the script type:
 ```
 py app.py
+<<<<<<< HEAD
+```
+=======
 ``` -->
 
+>>>>>>> fa62742f27db3d72f3c0a96d470c989b33514261

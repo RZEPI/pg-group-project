@@ -1,8 +1,14 @@
-import MainButtonContainer from "./MainButtonContainer";
-import logo from "../../assets/logo.png"
-import  "../styles/MainSideContent.css";
+import MainButtonContainer from "../MainButtonContainer";
+import  "../../styles/MainSideContent.css";
+import { useContext } from "react";
+import UserContext from "../../store/user-context";
+import BigLogo from "../BigLogo";
+import AnswersPreview from "../answersPreview/AnswersPreview";
 
-export default function Results({points, maxPoints}) {
+export default function Results() {
+    const {points, answers} = useContext(UserContext);
+    const maxPoints = Object.keys(answers).length * 3;  
+
     let message = "";
     if(points === maxPoints)
     {
@@ -16,10 +22,12 @@ export default function Results({points, maxPoints}) {
         message = "Przed tobą jeszcze trochę nauki. Spróbuj ponownie wciskając przycisk Zagraj od początku.";
     }
     return (<div className="main-side-container">
-        <img src={logo} alt="logo" /> 
+        <BigLogo />
         <h1>Twój wynik to:<br/>
             {`${points}/${maxPoints}`}</h1>
-        <h2>{message}</h2>
+        <h2 className="message">{message}</h2>
         <MainButtonContainer isMainPage={false} />
+        <AnswersPreview/>
+
     </div>);
 }

@@ -1,9 +1,7 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import styles from "../../styles/AnswersText.module.css";
 import Button from "../../../UI/Button";
-
-let incorrectAnswers = 0;
-let lastAnswer = -1;
 
 export default function AnswersText({ correctAnswer, onSelect }) {
   const [textField, setTextField] = useState("");
@@ -16,17 +14,10 @@ export default function AnswersText({ correctAnswer, onSelect }) {
     if (isNaN(parsedValue)) {
       setInputError("W polu można wpisać tylko liczbę dodatnią.");
     } else {
-      if (lastAnswer === parsedValue) return;
       const isCorrect = parsedValue === correctAnswer;
       setIsAnswerCorrect(isCorrect);
-      if (!isCorrect){ incorrectAnswers++;
-        lastAnswer = parsedValue;
-      }
-      else {
-        let points = 3 - 0.5 * incorrectAnswers;
-        points = points < 0 ? 0 : points;
-        onSelect(parsedValue, points);
-      }
+    
+      onSelect({answer: parsedValue, isCorrect});
     }
   }
 
@@ -45,11 +36,20 @@ export default function AnswersText({ correctAnswer, onSelect }) {
       ? styles["correct"]
       : styles["incorrect"];
 
+      const variants = {
+        correct: { y: [10, -10, 10, -10, 10, 0], scale: 1.01 },
+        incorrect: { x: [-10, 10, -10, 10, -10, 0], scale: 1 },
+        hover: { scale: 1.01 },
+      };
+      const currentVariant = isAnswerCorrect === undefined ? null : isAnswerCorrect ? "correct" : "incorrect";
   return (
     <form className={styles["form-container"]} onSubmit={handleSubmit}>
       <div className={styles["input-container"]}>
-        <input
+        <motion.input
           type="text"
+          whileHover={currentVariant === null ? "hover" : null}
+          variants={variants}
+          animate={currentVariant}
           value={textField}
           onChange={handleInputBlur}
           onFocus={() => setIsAnswerCorrect(undefined)}

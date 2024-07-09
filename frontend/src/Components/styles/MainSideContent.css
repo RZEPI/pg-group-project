@@ -6,8 +6,8 @@
     align-items: center;
     width: 50%;
     height: 55vh;
-    margin: 6em auto;
-    padding: 3em;
+    margin: 6rem auto;
+    padding: 3rem;
     color: white;
 }
 @font-face {
@@ -19,27 +19,99 @@
 {
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.1em;
     font-size: 4.7em;
     font-weight: 580;
     padding: 0.1em;
-    font-family: "Best Kids";
+    font-family: "Best Kids", Arial, Helvetica, sans-serif;
 }
 .main-side-container h2
 {
     margin-top: 0;
     text-align: center;
-    font-size: 2.4em;
+    font-size: 2.4rem;
     font-weight: 580;
-    padding: 0.1em;
+    padding: 0.1rem;
 }
 .main-side-container img
 {
-    width:7em;
+    width:7rem;
 }
 .main-side-container p
 {
-    font-size: 2em;
+    font-size: 2rem;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+
+@media (height < 1000px)
+{
+    .main-side-container
+    {
+        margin: 1rem auto;
+    }
+}
+
+@media (width < 1200px)
+{
+    .main-side-container
+    {
+        width: 80%;
+    }
+}
+
+@media (width < 1000px)
+{
+    .main-side-container img
+    {
+        display: none;
+    }
+
+    .main-side-container
+    {
+        margin: 2.5em auto;
+        height: 85vh;
+        justify-content:flex-start;
+    }
+
+    .description
+    {
+        margin-top: 0 !important;
+    }
+}
+
+@media (width < 550px)
+{
+    .main-side-container h1
+    {
+        margin-top: 1.3em;
+        font-size: 4.5em;
+        letter-spacing: 0;
+        width: 80%;
+    }
+    .main-side-container p
+    {
+        font-size: 1.3rem;
+    }
+    .message
+    {
+        display: none;
+    }
+}
+
+@media (width < 600px)
+{
+    .main-side-container h1
+    {
+        font-size: 2.8em;
+        margin-bottom:0.3em ;
+    }
+    .main-side-container p
+    {
+        font-size: 1.2rem;
+        margin-bottom:0.3em;
+        padding:0;
+    }
+    
 }
