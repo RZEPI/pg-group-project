@@ -50,7 +50,7 @@ def create_question_response(query_result):
     tmp_response.title = query_result[3]
     tmp_response.class_level = query_result[4]
     tmp_response.hint = query_result[5]
-    tmp_response.img_url = f"/images/{query_result[6]}.svg"
+    tmp_response.img_url = f"/images/{query_result[6]}.png"
 
     return tmp_response
 
