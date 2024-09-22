@@ -85,7 +85,7 @@ def fetch_query(cursor, query, params, multiple_recods=False):
 
     if not fetching_result:
         raise Exception("No records found.")
-    
+
     return fetching_result
 
 
@@ -98,7 +98,7 @@ def get_question_from_db(cursor, question_id, is_first=False):
         query,
         (question_id,),
     )
-    
+
     question = create_question_response(question_data)
     question.next_question_id = fetch_query(
         cursor,
@@ -135,7 +135,7 @@ def get_questions_by_class_level(class_level):
     return jsonify(response.__dict__)
 
 
-@app.route("/<int:class_level>/question/random")
+@app.route("/<int:class_level>/questions/random")
 def get_random_question(class_level):
     response = get_all_questions_from_db(class_level)
     random_question = choice(response.questions)
