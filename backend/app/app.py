@@ -31,9 +31,10 @@ class SingleQuestionResponse:
 
 
 class Question:
-    def __init__(self, title, question_id):
+    def __init__(self, title, question_id, img_url):
         self.title = title
         self.id = question_id
+        self.img_url = f"/images/{img_url}.png"
 
 
 class QuestionsResponse:
@@ -100,11 +101,16 @@ def get_question_from_db(cursor, question_id, is_first=False):
     )
 
     question = create_question_response(question_data)
-    question.next_question_id = fetch_query(
-        cursor,
-        queries.NEXT_QUESTION_ID_QUERY,
-        (question_id, question.class_level),
-    )[0]
+
+    try:
+        question.next_question_id = fetch_query(
+            cursor,
+            queries.NEXT_QUESTION_ID_QUERY,
+            (question_id, question.class_level),
+        )[0]
+    except Exception:
+        question.next_question_id = None
+
     answers = fetch_query(cursor, queries.ANSWERS_QUERY, (question.title,), True)
     question.answers = parse_answers(answers)
     return question
@@ -115,7 +121,7 @@ def get_all_questions_from_db(cursor, class_level):
     questions = fetch_query(cursor, queries.ALL_QUESTIONS_QUERY, (class_level,), True)
     parsed_questions = QuestionsResponse()
     for question in questions:
-        parsed_question = Question(question[0], question[1])
+        parsed_question = Question(*question)
         parsed_questions.questions.append(parsed_question.__dict__)
 
     return parsed_questions

@@ -5,7 +5,7 @@ export default function LevelItem({ levelData, onLevelChoise, className }) {
   return (
     <motion.li
       style={{
-        backgroundImage: `url(${levelData.image})`,
+        backgroundImage: `url(${levelData.img_url})`,
         backgroundSize: "cover",
         backgroundPosition: "bottom",
       }}
