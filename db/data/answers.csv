@@ -26,18 +26,20 @@ question_title,answer_text,is_correct
 "Afera pszeniczna","Pan Kazio",1
 "Afera pszeniczna","Pan Waldek",0
 "Afera pszeniczna","żaden z nich",0
+"Afera pszeniczna","obaj",0
 "Ile słoików miodu?","2",0
 "Ile słoików miodu?","12",0
 "Ile słoików miodu?","20",1
 "Ile słoików miodu?","5",0
 "Malowanie wiaty","TAK",1
 "Malowanie wiaty","NIE",0
-"Zbieranie plonów","50L",1
+"Zbieranie plonów","50",1
 "Biegający Marek","4000",1
 "Teleturniej","Kazio",1
 "Teleturniej","Jadzia",0
 "Marek mierzy wzrost","1,45",1
 "Marek mierzy wzrost","0,145",0
 "Marek mierzy wzrost","14,5",0
+"Marek mierzy wzrost","Żadna z odpowiedzi nie jest poprawna",0
 "Wyprawa wędkarska","TAK",1
 "Wyprawa wędkarska","NIE",0

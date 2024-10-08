@@ -37,7 +37,7 @@ export async function fetchQuestionsForClass({ signal, classId }) {
 
 export async function fetchFirstQuestion({ signal, classId }) {
   return fetchGet(
-    `${BACKEND_URL}/${classId}/question/first`,
+    `${BACKEND_URL}/${classId}/questions/first`,
     signal,
     "Error while fetching question data"
   );
@@ -52,7 +52,7 @@ export async function fetchNextQuestion({ signal, id }) {
 
 export async function fetchRandomQuestion({ signal, classId }) {
   return fetchGet(
-    `${BACKEND_URL}/${classId}/question/random`,
+    `${BACKEND_URL}/${classId}/questions/random`,
     signal,
     "Error while fetching random question data"
   );

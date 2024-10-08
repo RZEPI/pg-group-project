@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import styles from "../styles/ClassChoice.module.css";
 
@@ -10,6 +10,10 @@ export default function ClassChoice() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [isFolded, setIsFolded] = useState(true);
   const [currentClass, setCurrentClass] = useState(searchParams.get("classId") || ALL_CLASSES[0]);
+
+  useEffect(() => {
+    setCurrentClass(searchParams.get("classId") || ALL_CLASSES[0]);
+  }, [searchParams]);
 
   function classClickHandler(newClass) {
     if(isFolded)

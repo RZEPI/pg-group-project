@@ -1,10 +1,10 @@
-# Group Project 
-This is the project developed as part of course at the Gdańsk University of Technology. 
+# Group Project
+This is the project developed as part of course at the Gdańsk University of Technology.
 The project's purpose is to develop educational game for children from elementary school designed to make learning about various units of measurement a fun and interactive experience for young minds.
 
-## Starting application  
-Type in Linux terminal:   
-> docker compose up --build   
+## Starting application
+Type in Linux terminal:
+> docker compose up --build
 
 http://localhost:3001/
 
@@ -42,9 +42,4 @@ pip install -r requirements.txt
 To run the script type:
 ```
 py app.py
-<<<<<<< HEAD
 ```
-=======
-``` -->
-
->>>>>>> fa62742f27db3d72f3c0a96d470c989b33514261

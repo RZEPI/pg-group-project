@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useLoaderData } from "react-router-dom";
 import styles from "../../styles/LevelChoicePage.module.css";
 
@@ -16,6 +16,10 @@ export default function LevelChoicePage() {
   const navigate = useNavigate();
 
   const {questions} = useLoaderData();
+
+  useEffect(() =>{
+    setChosenLvl(undefined);
+  }, [questions])
 
   function levelChoiceHandler(level) {
     const idx = questions.indexOf(level)

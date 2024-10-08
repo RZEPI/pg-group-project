@@ -24,10 +24,10 @@ export default function LevelDescription({ chosenLevel }) {
             transition={{ duration: animation_duration }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            src={chosenLevel.image}
+            src={chosenLevel.img_url}
             alt={chosenLevel.title}
           />
-          <Button color="yellow" href={`/level/${chosenLevel.idx}?back=level-choice`}>
+          <Button color="yellow" href={`/level/${chosenLevel.id}?back=level-choice`}>
             Rozpocznij Grę
           </Button>
         </motion.div>
