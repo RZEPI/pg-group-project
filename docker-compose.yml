@@ -24,7 +24,6 @@ services:
     volumes:
       - ./frontend/public:/app/public
       - ./frontend/src:/app/src
-      - ./frontend/node_modules:/app/node_modules
     depends_on:
       - backend
     networks:
